@@ -19,6 +19,16 @@ end
 [~,~,V] = svd(N);
 PIs = V(:,end); %Extract LSE of stacked PI
 PI = reshape(PIs,[3 4]); %Unstack PI vector
+[alf,K,R] = qrCommute(PI(:,1:3)); %use QR decomp to find K,R, and scale 
+T = (inv(K)/alf)*PI(:,4); %Calculate translation
+PIest = [K*R K*T];
+g = [R T;0 0 0 1]; %Contruct pose matrix 
+lambda = e3'*PIest*Xoh; %Extract depth
+
+
+
+
+
 
 
 

@@ -8,6 +8,7 @@ close all
 %read in the images
 i1=imread('Images\cvClass 023.jpg','jpg');
 i2=imread('Images\cvClass 026.jpg','jpg');
+i3=imread('Images\cvClass 028.jpg','jpg');
 lbox=45.6; %length of box
 hbox=32.5; %height of box
 wbox=10.1; %width of box
@@ -20,6 +21,10 @@ n=7;
 %    X1=[1 1];X2=[1 1];%must start with an initial point; this will be removed later
 %    [X1,X2]=cpselect(i1,i2,X1,X2,'Wait',true); 
 %     save motorBoxCorners23_26 X1 X2 %save the correspondence points you just found
+
+% X3=[1 1];%must start with an initial point; this will be removed later
+% [X3]=cpselect(i3,X3,'Wait',true); 
+% save motorBoxCorners23_26 X3 %save the correspondence points you just found
 
 %load in correspondence points
 load motorBoxCorners23_26.mat
@@ -41,11 +46,24 @@ Xomat=[0 lbox lbox lbox 0 0 lbox
 Xoh = [Xomat; ones(1,mc)];
 %find calibration matrices
 [gest1qr,lambda1qr,K1]=monoPoseQR(Xomat,x1pixmat); %find K, depth, and g
-% Rest1qr=gest1qr(1:3,1:3);Test1qr=gest1qr(1:3,4); %Extraction of R and T
-% 
-% [gest2qr,lambda2qr,K2]=monoPoseQR(Xomat,x2pixmat);%write your own function here
-% Rest2qr=gest2qr(1:3,1:3);Test2qr=gest2qr(1:3,4);
+Rest1qr=gest1qr(1:3,1:3);Test1qr=gest1qr(1:3,4); %Extraction of R and T
 
+[gest2qr,lambda2qr,K2]=monoPoseQR(Xomat,x2pixmat);
+Rest2qr=gest2qr(1:3,1:3);Test2qr=gest2qr(1:3,4);
+
+PI1 = [K1*Rest1qr K1*Test1qr];
+PI2 = [K1*Rest2qr K2*Test2qr];
+
+%Estimated pixel coordinates
+x1pixest = zeros(size(x1pixmat));
+x2pixest = zeros(size(x2pixmat));
+for i = 1:mc
+    x1pixest(:,i) = (PI1*Xoh(:,i))/lambda1qr(i)
+    x2pixest(:,i) = (PI2*Xoh(:,i))/lambda2qr(i)
+end
+
+
+% 
 
 %find calibrated image positions, pose, 3d world positions
 %
@@ -58,6 +76,7 @@ clf
 image(i1);
 hold on
 plot(X1(:,1)+j*X1(:,2),'g*')
+scatter(x1pixest(1,:),x1pixest(2,:),'r*')
 legend('Image Points')
 title('Image 1')
 hold off
@@ -67,6 +86,7 @@ clf
 image(i2)
 hold on
 plot(X2(:,1)+j*X2(:,2),'g*')
+scatter(x2pixest(1,:),x2pixest(2,:),'r*')
 legend('Image Points')
 title('Image 2')
 hold off
