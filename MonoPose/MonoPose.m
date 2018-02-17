@@ -23,8 +23,7 @@ n=7;
 %load in correspondence points
 load motorBoxCorners23_26.mat
 
-
-[mc,nc]=size(X1);
+%[mc,nc]=size(X1); %NOT SURE WHY INCLUDED?
 X1=X1(2:n+1,:); %remove initial point, it is not good data
 X2=X2(2:n+1,:);
 [mc,nc]=size(X1);
@@ -34,16 +33,14 @@ x1pixmat=[X1'
 x2pixmat=[X2'
     ones(1,mc)];  %convert the points to homogeneous coordinates
 
-
-
 %enter object coordinates for the first 7 corners
 Xomat=[0 lbox lbox lbox 0 0 lbox
        0 0 hbox hbox hbox 0 0
-       0 0 0 -wbox -wbox -wbox -wbox]; %object coordinates of the four corners
+       0 0 0 -wbox -wbox -wbox -wbox]; %object coords of the four corners
 
 %find calibration matrices
-% [gest1qr,lambda1qr,K1]=monoPoseQR(Xomat,x1pixmat);%write your own function here
-% Rest1qr=gest1qr(1:3,1:3);Test1qr=gest1qr(1:3,4);
+% [gest1qr,lambda1qr,K1]=monoPoseQR(Xomat,x1pixmat); %find K, depth, and g
+% Rest1qr=gest1qr(1:3,1:3);Test1qr=gest1qr(1:3,4); %Extraction of R and T
 % 
 % [gest2qr,lambda2qr,K2]=monoPoseQR(Xomat,x2pixmat);%write your own function here
 % Rest2qr=gest2qr(1:3,1:3);Test2qr=gest2qr(1:3,4);
