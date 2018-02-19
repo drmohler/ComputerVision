@@ -24,15 +24,3 @@ T = (inv(K)/alf)*PI(:,4); %Calculate translation
 PIest = [K*R K*T];
 g = [R T;0 0 0 1]; %Contruct pose matrix 
 lambda = e3'*PIest*Xoh; %Extract depth
-
-
-
-
-
-
-
-
-
-
-
-

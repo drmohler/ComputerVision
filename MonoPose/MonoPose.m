@@ -8,7 +8,8 @@ close all
 %read in the images
 i1=imread('Images\cvClass 023.jpg','jpg');
 i2=imread('Images\cvClass 026.jpg','jpg');
-i3=imread('Images\cvClass 028.jpg','jpg');
+i3=imread('Images\cvClass 024.jpg','jpg');
+i4=imread('Images\cvClass 028.jpg','jpg');
 lbox=45.6; %length of box
 hbox=32.5; %height of box
 wbox=10.1; %width of box
@@ -22,12 +23,13 @@ n=7;
 %    [X1,X2]=cpselect(i1,i2,X1,X2,'Wait',true); 
 %     save motorBoxCorners23_26 X1 X2 %save the correspondence points you just found
 
-% X3=[1 1];%must start with an initial point; this will be removed later
-% [X3]=cpselect(i3,X3,'Wait',true); 
-% save motorBoxCorners23_26 X3 %save the correspondence points you just found
-
+%X3=[1 1];X4=[1 1]%must start with an initial point; this will be removed later
+% [X3,X4]=cpselect(i3,i4,X3,X4,'Wait',true); 
+% save motorBoxCorners24_28 X3 X4 %save the correspondence points you just found
+% 
 %load in correspondence points
 load motorBoxCorners23_26.mat
+load motorBoxCorners24_28.mat
 
 %[mc,nc]=size(X1); %need if changing # of Correspon. pts. 
 X1=X1(2:n+1,:); %remove initial point, it is not good data
@@ -38,12 +40,16 @@ x1pixmat=[X1'
     ones(1,mc)];  %convert the points to homogeneous coordinates
 x2pixmat=[X2'
     ones(1,mc)];  %convert the points to homogeneous coordinates
+x3pixmat=[X3'
+    ones(1,mc)];  %convert the points to homogeneous coordinates
+x4pixmat=[X4'
+    ones(1,mc)];  %convert the points to homogeneous coordinates
 
 %enter object coordinates for the first 7 corners
 Xomat=[0 lbox lbox lbox 0 0 lbox
        0 0 hbox hbox hbox 0 0
        0 0 0 -wbox -wbox -wbox -wbox]; %object coords of the four corners
-Xoh = [Xomat; ones(1,mc)];
+Xoh = [Xomat; ones(1,mc)]; %Homogeneous object coordinates
 %find calibration matrices
 [gest1qr,lambda1qr,K1]=monoPoseQR(Xomat,x1pixmat); %find K, depth, and g
 Rest1qr=gest1qr(1:3,1:3);Test1qr=gest1qr(1:3,4); %Extraction of R and T
@@ -51,47 +57,74 @@ Rest1qr=gest1qr(1:3,1:3);Test1qr=gest1qr(1:3,4); %Extraction of R and T
 [gest2qr,lambda2qr,K2]=monoPoseQR(Xomat,x2pixmat);
 Rest2qr=gest2qr(1:3,1:3);Test2qr=gest2qr(1:3,4);
 
-PI1 = [K1*Rest1qr K1*Test1qr];
-PI2 = [K1*Rest2qr K2*Test2qr];
+[gest3qr,lambda3qr,K3]=monoPoseQR(Xomat,x3pixmat);
+Rest3qr=gest3qr(1:3,1:3);Test3qr=gest3qr(1:3,4);
 
-%Estimated pixel coordinates
+[gest4qr,lambda4qr,K4]=monoPoseQR(Xomat,x4pixmat);
+Rest4qr=gest4qr(1:3,1:3);Test4qr=gest4qr(1:3,4);
+
+PI1 = [K1*Rest1qr K1*Test1qr];
+PI2 = [K2*Rest2qr K2*Test2qr];
+PI3 = [K3*Rest3qr K3*Test3qr];
+PI4 = [K4*Rest4qr K4*Test4qr];
+
+%Estimated pixel coordinates of correspondence points
 x1pixest = zeros(size(x1pixmat));
 x2pixest = zeros(size(x2pixmat));
+x3pixest = zeros(size(x3pixmat));
+x4pixest = zeros(size(x4pixmat));
 for i = 1:mc
-    x1pixest(:,i) = (PI1*Xoh(:,i))/lambda1qr(i)
-    x2pixest(:,i) = (PI2*Xoh(:,i))/lambda2qr(i)
-end
-
-
-% 
+    x1pixest(:,i) = (PI1*Xoh(:,i))/lambda1qr(i);
+    x2pixest(:,i) = (PI2*Xoh(:,i))/lambda2qr(i);
+    x3pixest(:,i) = (PI3*Xoh(:,i))/lambda3qr(i);
+    x4pixest(:,i) = (PI4*Xoh(:,i))/lambda4qr(i);
+end 
 
 %find calibrated image positions, pose, 3d world positions
-%
-%the code below may be used, with your modifications, to help with
-%plotting.  
 
-
-figure(21)
+%Images and plotting 
+figure(1)
 clf
 image(i1);
 hold on
 plot(X1(:,1)+j*X1(:,2),'g*')
 scatter(x1pixest(1,:),x1pixest(2,:),'r*')
-legend('Image Points')
+legend('Image Points','Estimated Points')
 title('Image 1')
 hold off
 
-figure(22)
+figure(2)
 clf
 image(i2)
 hold on
 plot(X2(:,1)+j*X2(:,2),'g*')
 scatter(x2pixest(1,:),x2pixest(2,:),'r*')
-legend('Image Points')
+legend('Image Points','Estimated Points')
 title('Image 2')
 hold off
 
-figure(23)
+
+figure(3)
+clf
+image(i3)
+hold on
+plot(X3(:,1)+j*X3(:,2),'g*')
+scatter(x3pixest(1,:),x3pixest(2,:),'r*')
+legend('Image Points','Estimated Points')
+title('Image 3')
+hold off
+
+figure(4)
+clf
+image(i4)
+hold on
+plot(X4(:,1)+j*X4(:,2),'g*')
+scatter(x4pixest(1,:),x4pixest(2,:),'r*')
+legend('Image Points','Estimated Points')
+title('Image 4')
+hold off
+
+figure(5)
 clf
 pts=1:7;
 plot3(Xomat(1,pts),Xomat(2,pts),Xomat(3,pts),'--rh')
