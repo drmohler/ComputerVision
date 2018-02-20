@@ -22,48 +22,42 @@
 
 \maketitle
 
-\section{Introduction}
-The following set of experiments are focused on the application of the simultaneous monocular calibration and pose estimation algorithm to a series of images of rigid objects with known dimensions and correspondence points. This algorithm is, as described by its title, capable of calibrating a single camera with a fixed focal length in the presence of known rigid objects, which enables the simultaneous discovery of the pose of the object and from this generate a three dimensional representation of that same object.  
-
-In this project we will demonstrate the generation of independent and identically distributed (IID) data samples through rejection sampling of a continuous PDF. Using this data we will then apply EM to iteratively estimate the parameters of the probability distribution function. 
+\section{Introduction} 
+Determination of the pose of rigid objects within images is a common problem within many practical application of computer vision, robotics, computer graphics, etc. The following set of experiments are focused on the application of the simultaneous monocular calibration and pose estimation algorithm to a series of images of rigid objects with known dimensions and correspondence points. From this known data, the algorithm is capable of calibrating a single monocular camera with a fixed focal length. The calibration enables simultaneous discovery of the pose of the viewed object, and from this generate a three dimensional representation of that same object.  
+%In this project we will demonstrate the generation of independent and identically distributed (IID) data samples through rejection sampling of a continuous PDF. Using this data we will then apply EM to iteratively estimate the parameters of the probability distribution function. 
 
 \section{Methods and Results}
-The foundation of this project is based on the known characterization of a signal which is represented in the form a single continuous PDF as seen in Equation \ref{PDF}. It is apparent from Equation \ref{PDF} that our signal is characterized as a continuous probability mixture model, consisting of three distinct mixture components. By separating these components (Figure \ref{comps}) we display the contributions of each respective distribution to the cumulative PDF.
+The foundation of this project is based on the known dimensions of a given rigid object, a box for example, which is  manually assigned a number of points on the object corresponding to its corners (i.e.\ the coordinates in the object frame represent the dimensions of the object). A model of the initial box and its correspondence points can be seen in Figure \ref{box}, additionally, the measured dimensions of the object are shown in Table \ref{boxdim}. Given this data we are able to proceed with the implementation of the monocular pose algorithm. 
+
+\begin{figure}[h]
+	\centering % must do this or your figure won't be centered
+	\includegraphics[width=0.4\textwidth]{BoxModel.png}
+	\caption{Rigid object model.} \label{box}
+\end{figure}
+
+Using the object coordinates in their homogeneous form (i.e.\ $X_o^i = [x_o^i \quad y_o^i \quad z_o^i \quad 1]^T$) we begin with calculating an approximation of the projection matrix, $\Pi_{est}$. The projection matrix is such that $\Pi = [KR \quad KT] \in \Re^{3\times4}$, where $K$ is the camera calibration matrix, $R$ is a rotation matrix, and $T$ is the translation vector. Given that we know the location of the correspondence points, $\chi^{pj}$, and their matching locations in the object frame, $X_0^j$, we are able to .This approximation can be expressed as a least squares minimization of the 
 
 \begin{center}
 	\begin{tabular}[5pt]{| c| c|}
 	\hline
-    Parameter	& Value \\[0.5ex] 
-	\hline 
-	
-	$w_1$& 0.5  \\ \hline 
-	$w_2$& 0.3  \\ \hline 
-	$w_3$& 0.2  \\ \hline 
-	$\mu_1$& 3.0  \\ \hline 
-	$\mu_2$& 10.0  \\ \hline 
-	$\sigma_1^2$& 1.0  \\ \hline 
-	$\sigma_2^2$& 4.0  \\ \hline 
-	$\lambda$& 2.0  \\ \hline 
+    Parameter	& Value (cm) \\[0.5ex] 
+	\hline 	
+	$Length$& 45.6  \\ \hline 
+	$Height$& 32.5  \\ \hline 
+	$Width$& 10.1  \\ \hline 
 \end{tabular}
-\captionof{table}{True Distribution Parameters}\label{truevals}
+\captionof{table}{Object Dimensions}\label{boxdim}
 \end{center}
- Using the given values, seen in Table \ref{truevals}, we display the separated components of the probability mixture. Our mixture model is composed of two separate Gaussian distributions, each with their own respective means and variances, and a single exponential distribution which is characterized by the $\lambda$ parameter, which can be interpreted as the inverse of the mean of the exponential distribution.
 
-%\begin{figure}[h]
-%	\centering % must do this or your figure won't be centered
-%	\includegraphics[width=0.5\textwidth]{comps.eps}
-%	\caption{Components of the probability mixture model.} \label{comps}
-%\end{figure}
 
-\begin{equation}\label{PDF}
-p(x) = w_1 \dfrac{1}{\sqrt{2\pi\sigma_{1}^{2}}}e^{-\dfrac{1}{2}\dfrac{(x-\mu_1)^2}{\sigma_{1}^{2}}}+w_2 \dfrac{1}{\sqrt{2\pi\sigma_{2}^{2}}}e^{-\dfrac{1}{2}\dfrac{(x-\mu_2)^2}{\sigma_{2}^{2}}}+w_3\lambda e^{-\lambda x}
+
+
+
+
+\begin{equation}\label{xp}
+	\chi^{pj} = \dfrac{\Pi_{est} X_0^j}{\lambda^j}
 \end{equation}
-To maintain the constraint that $\int p(x) dx=1$, each mixture component is assigned a weight such that $\sum_{i} w_i = 1$. The true distribution is constructed such that $w_1 = 0.5$, $w_2 = 0.3$, and $w_3 = 0.2$. The results of the weighted mixture that constitutes the continuous distribution $p(x)$ can be seen in Figure \ref{true}.
-%\begin{figure}[H]
-%	\centering % must do this or your figure won't be centered
-%	\includegraphics[width=0.5\textwidth]{true.eps}
-%	\caption{True probability distribution} \label{true}
-%\end{figure}
+
 
 
 \subsection{Corrupted Correspondence Points}
@@ -117,9 +111,9 @@ The Expectation Maximization algorithm has proven itself to be a fairly robust t
 \section{Code Listings}\label{code}
 
 % input the file containing the code
-\lstinputlisting[caption={Top level implementation for Monocular Calibration and Pose Estimation},label={proj}]{MonoPose.m}
-\lstinputlisting[caption={QR Decomp Based Algorithm Implementation},label={alg}]{MonoPoseQR.m} 
-\lstinputlisting[caption={Rearranged QR Decomposition (Credit: Dr. John McInroy)},label={qrCom}]{qrCommute.m}
+%\lstinputlisting[caption={Top level implementation for Monocular Calibration and Pose Estimation},label={proj}]{MonoPose.m}
+%\lstinputlisting[caption={QR Decomp Based Algorithm Implementation},label={alg}]{MonoPoseQR.m} 
+%\lstinputlisting[caption={Rearranged QR Decomposition (Credit: Dr. John McInroy)},label={qrCom}]{qrCommute.m}
 %\lstinputlisting[caption={Expectation Maximization, Version 2},label={EM2}]{EM2.m}
 %\lstinputlisting[caption={Mixture Model PDF},label={prob}]{p.m}
 
