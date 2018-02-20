@@ -105,7 +105,7 @@ Xoest4 = zeros(size(Xomat));
 for i = 1:mc
    Xoest1(:,i) = Rest1qr'*inv(K1)*(lambda1qr(i)*x1pixest(:,i)-K1*Test1qr);
    Xoest1cor(:,i) = Rest1cor'*inv(K1cor)*...
-                        (lambda1cor(i)*x1pixestcor(:,i)-K1*Test1cor);
+                        (lambda1cor(i)*x1pixestcor(:,i)-K1cor*Test1cor);
    Xoest2(:,i) = Rest2qr'*inv(K2)*(lambda2qr(i)*x2pixest(:,i)-K2*Test2qr); 
    Xoest3(:,i) = Rest3qr'*inv(K3)*(lambda3qr(i)*x3pixest(:,i)-K3*Test3qr); 
    Xoest4(:,i) = Rest4qr'*inv(K4)*(lambda4qr(i)*x4pixest(:,i)-K4*Test4qr); 
