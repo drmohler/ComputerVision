@@ -28,7 +28,7 @@ load motorBoxCorners24_28.mat
 
 [mc,nc]=size(X1); %need if changing # of Correspon. pts. 
 X1=X1(2:n+1,:); %remove initial point, it is not good data
-X2=X2(2:n+1,:);
+X2=X2(2:n+1,:); 
 [mc,nc]=size(X1);
 
 x1pixmat=[X1'
@@ -43,17 +43,17 @@ x4pixmat=[X4'
 %Corruption of data points with gaussian noise
 x1pixcor = x1pixmat;
 %corruption of each coordinate in each point seperately
-% for i = 1:mc
-%   x1pixcor(1,i) = x1pixmat(1,i)+10*randn(1,1);
-%   x1pixcor(2,i) = x1pixmat(2,i)+10*randn(1,1);
+for i = 1:mc
+  x1pixcor(1,i) = x1pixmat(1,i)+100*randn(1,1);
+  x1pixcor(2,i) = x1pixmat(2,i)+100*randn(1,1);
 %   x1pixcor(3,i) = x1pixmat(3,i)+10*randn(1,1);
-% end
+end
 
 %Corrupting all coordinates equally across correspondence points
 %(maintains shape, but is shifted in image plane) 
-x1pixcor(1,:) = x1pixmat(1,:)+75*randn(1,1);
-x1pixcor(2,:) = x1pixmat(2,:)+75*randn(1,1);
-x1pixcor(3,:) = x1pixmat(3,:)+75*randn(1,1);
+% x1pixcor(1,:) = x1pixmat(1,:)+75*randn(1,1);
+% x1pixcor(2,:) = x1pixmat(2,:)+75*randn(1,1);
+% x1pixcor(3,:) = x1pixmat(3,:)+75*randn(1,1);
 
 %enter object coordinates for the first 7 corners
 Xomat=[0 lbox lbox lbox 0 0 lbox
@@ -103,9 +103,9 @@ Xoest2 = zeros(size(Xomat));
 Xoest3 = zeros(size(Xomat));
 Xoest4 = zeros(size(Xomat));
 for i = 1:mc
-   Xoest1(:,i) = Rest1qr'*inv(K1)*(lambda1qr(i)*x1pixest(:,i)-K1*Test1qr);
+   Xoest1(:,i) = Rest1qr'*inv(K1)*(lambda1qr(i)*x1pixmat(:,i)-K1*Test1qr);
    Xoest1cor(:,i) = Rest1cor'*inv(K1cor)*...
-                        (lambda1cor(i)*x1pixestcor(:,i)-K1cor*Test1cor);
+                        (lambda1cor(i)*x1pixmat(:,i)-K1cor*Test1cor);
    Xoest2(:,i) = Rest2qr'*inv(K2)*(lambda2qr(i)*x2pixest(:,i)-K2*Test2qr); 
    Xoest3(:,i) = Rest3qr'*inv(K3)*(lambda3qr(i)*x3pixest(:,i)-K3*Test3qr); 
    Xoest4(:,i) = Rest4qr'*inv(K4)*(lambda4qr(i)*x4pixest(:,i)-K4*Test4qr); 
@@ -125,11 +125,20 @@ avZRMSE = (sqrt(sum(((Xomat(1,:)-Xoest1(1,:)).^2)/mc))+...
     sqrt(sum(((Xomat(3,:)-Xoest3(3,:)).^2)/mc))+...
     sqrt(sum(((Xomat(3,:)-Xoest4(3,:)).^2)/mc)))/4;
 %DO AVERAGE DISTANCE PRMSE
-% distx = sqrt((Xomat(1,:)-Xoest1(1,:)).^2+(Xomat(2,:)-Xoest1(2,:)).^2)
-% avDRMSE = (sqrt(sum(distx/mc))+...
-%     sqrt(sum(((Xomat(3,:)-Xoest2(3,:)).^2)/mc))+...
-%     sqrt(sum(((Xomat(3,:)-Xoest3(3,:)).^2)/mc))+...
-%     sqrt(sum(((Xomat(3,:)-Xoest4(3,:)).^2)/mc)))/4;
+dist1 = sqrt((Xomat(1,:)-Xoest1(1,:)).^2+(Xomat(2,:)-Xoest1(2,:)).^2 ...
++(Xomat(3,:)-Xoest1(3,:)).^2)
+dist2 = sqrt((Xomat(1,:)-Xoest2(1,:)).^2+(Xomat(2,:)-Xoest2(2,:)).^2 ...
++(Xomat(3,:)-Xoest2(3,:)).^2)
+dist3 = sqrt((Xomat(1,:)-Xoest3(1,:)).^2+(Xomat(2,:)-Xoest3(2,:)).^2 ...
++(Xomat(3,:)-Xoest3(3,:)).^2)
+dist4 = sqrt((Xomat(1,:)-Xoest4(1,:)).^2+(Xomat(2,:)-Xoest4(2,:)).^2 ...
++(Xomat(3,:)-Xoest4(3,:)).^2)
+avDRMSE = (sqrt(sum(dist1/mc))+sqrt(sum(dist1/mc))+sqrt(sum(dist1/mc))...
+    +sqrt(sum(dist1/mc)))/4;
+
+dist1cor = sqrt((Xomat(1,:)-Xoest1cor(1,:)).^2+(Xomat(2,:)-Xoest1cor(2,:)).^2 ...
++(Xomat(3,:)-Xoest1cor(3,:)).^2)
+DRMSEcor = sqrt(sum(dist1cor/mc))
 
 %Images and plotting 
 figure(1)

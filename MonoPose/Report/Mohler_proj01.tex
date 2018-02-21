@@ -35,7 +35,14 @@ The foundation of this project is based on the known dimensions of a given rigid
 	\caption{Rigid object model.} \label{box}
 \end{figure}
 
-Using the object coordinates in their homogeneous form (i.e.\ $X_o^i = [x_o^i \quad y_o^i \quad z_o^i \quad 1]^T$) we begin with calculating an approximation of the projection matrix, $\Pi_{est}$. The projection matrix is such that $\Pi = [KR \quad KT] \in \Re^{3\times4}$, where $K$ is the camera calibration matrix, $R$ is a rotation matrix, and $T$ is the translation vector. Given that we know the location of the correspondence points, $\chi^{pj}$, and their matching locations in the object frame, $X_0^j$, we are able to .This approximation can be expressed as a least squares minimization of the 
+Using the object coordinates in their homogeneous form (i.e.\ $X_o^i = [x_o^i \quad y_o^i \quad z_o^i \quad 1]^T$), we begin with calculating an approximation of the projection matrix, $\Pi_{est}$. The projection matrix is such that $\Pi = [KR \quad KT] \in \Re^{3\times4}$, where $K$ is the camera calibration matrix, $R$ is a rotation matrix, and $T$ is the translation vector. Given that we know the location of the correspondence points, $\chi^{pj}$, and their matching locations in the object frame, $X_0^j$, assuming that a sufficient number of points are provided, we are then able to find an approximation to $\Pi$.This approximation can be expressed as a least squares minimization of Equation \ref{NPI}, where $e_3$ is the standard basis vector $[0 0 1]^T$, $\Pi^S$ is the vectorized or ``stacked'' version of $\Pi$,and $\otimes$ represents the Kronecker product. The least squares estimate of the vectorized projection matrix can be found as the minimum input direction of $N$, which is the final right singular vector yielded from the singular value decomposition (SVD) of $N$.  
+\begin{equation}\label{NPI}
+N^j\Pi^{pj} = [(X_o^{jT}\otimes I_3)-(X_o^{jT}\otimes \chi^{pj}e_3^T)]\Pi^S = 0
+\end{equation}
+From this we are able to de-vectorize the result of the SVD and obtain the $\Pi_{est}$. Using this we are able to extract all of the necessary to describe the calibration and pose of the camera. From order reversing the standard QR decomposition we are able to obtain the scaling factor $\alpha$, the calibration matrix, and the rotation matrices corresponding to the given set of pixel coordinates. Using this information we can lastly find the translation vector associated with the system from the following equation,where $T' = KT$, and is the rightmost column of $\Pi_{est}$: 
+\begin{equation*}\label{NPI}
+	T = \dfrac{K^{-1}T'}{\alpha}
+\end{equation*}
 
 \begin{center}
 	\begin{tabular}[5pt]{| c| c|}
@@ -49,16 +56,24 @@ Using the object coordinates in their homogeneous form (i.e.\ $X_o^i = [x_o^i \q
 \captionof{table}{Object Dimensions}\label{boxdim}
 \end{center}
 
-
-
-
-
+	\begin{figure}[h]
+	\centering % must do this or your figure won't be centered
+	\captionsetup{justification=centering}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{noise_shift.eps}
+		\caption{Estimated image coordinates} \label{noiseshift}
+	\end{minipage}\hfill
+	\begin{minipage}{0.5\textwidth}
+		\centering % must do this or your figure won't be centered
+		\includegraphics[width=1\textwidth]{noise_shift_recon.eps}
+		\caption{Reconstructed box relative to ground truth} \label{noiserecon}
+	\end{minipage}
+\end{figure}
 
 \begin{equation}\label{xp}
 	\chi^{pj} = \dfrac{\Pi_{est} X_0^j}{\lambda^j}
 \end{equation}
-
-
 
 \subsection{Corrupted Correspondence Points}
 

@@ -2,6 +2,9 @@ function [g,lambda,K]=monoPoseQR(Xomat,xpixh)
 %Function to find the camera pose (g), depth to object points (lambda), and 
 %camera calibration matrix (K)
 
+%David R Mohler
+%EE-5450 Fall 2018
+
 n = size(Xomat,2); 
 
 %convert object coords to homogeneous coordinates
@@ -16,7 +19,7 @@ for i  = 1:n
     j = j+3; 
 end
 
-[~,~,V] = svd(N);
+[~,~,V] = svd(N); %Use only Right singular vectors
 PIs = V(:,end); %Extract LSE of stacked PI
 PI = reshape(PIs,[3 4]); %Unstack PI vector
 [alf,K,R] = qrCommute(PI(:,1:3)); %use QR decomp to find K,R, and scale 
