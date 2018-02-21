@@ -41,7 +41,7 @@ N^j\Pi^{pj} = [(X_o^{jT}\otimes I_3)-(X_o^{jT}\otimes \chi^{pj}e_3^T)]\Pi^S = 0
 	\captionsetup{justification=centering}
 	\begin{minipage}{0.5\textwidth}
 		\centering % must do this or your figure won't be centered
-		\includegraphics[width=0.9\textwidth]{BoxModel.png}
+		\includegraphics[width=0.75\textwidth]{BoxModel.png}
 		\caption{Rigid object model.} \label{box}
 	\end{minipage}\hfill
 	\begin{minipage}{0.5\textwidth}
@@ -59,52 +59,34 @@ N^j\Pi^{pj} = [(X_o^{jT}\otimes I_3)-(X_o^{jT}\otimes \chi^{pj}e_3^T)]\Pi^S = 0
 	\end{minipage}
 \end{figure}
 
-\noindent From this we are able to de-vectorize the result of the SVD and obtain $\Pi_{est}$. Using this we extract all of the necessary components to describe the calibration and pose of the camera. From order reversing the standard QR decomposition we are able to obtain the scaling factor $\alpha$, the calibration matrix, and the rotation matrices corresponding to the given set of pixel coordinates. Using this information we can lastly find the translation vector associated with the system from the following equation,where $T' = KT$, and is the rightmost column of $\Pi_{est}$: 
+\noindent From this we de-vectorize the result of the SVD and obtain $\Pi_{est}$. Using this, all necessary components to describe the calibration and pose of the camera are extracted. From order reversing the standard QR decomposition we are able to obtain the scaling factor $\alpha$, the calibration matrix, and the rotation matrices corresponding to the given set of pixel coordinates. Using this information we can lastly find the translation vector associated with the system from the following equation,where $T^{'} = KT$, and is the rightmost column of $\Pi_{est}$: 
 
 \begin{multicols}{2}
 	\begin{equation}\label{Teq}
-		T = \dfrac{K^{-1}T'}{\alpha}
+		T = \dfrac{K^{-1}T^{'}}{\alpha}
 	\end{equation}\break
 	\begin{equation}\label{xp}
 		\chi^{pj} = \dfrac{\Pi_{est} X_0^j}{\lambda^j}
 	\end{equation}\break
 \end{multicols}
 
-Using the information obtained from the algorithm, we next show the ability to project estimated pixel coordinates in to the image plane. These estimated pixel coordinates are described by Equation \ref{xp}.  From this we are able to qualitatively visualize the success of the algorithm in matching provided correspondence points. From the estimated pixel coordinates in noiseless reconstructions of the object we calculate the average root mean square error (RMSE) of the position between the true coordinates and their respective estimates in the object frame in order to establish the overall fidelity of the algorithm across multiple images taken with varying rotations, translations, and calibrations. In this case PRMSE is expressed as:
 
-%DO THE PRMSE EQN!!
-\begin{equation}
-	content...
+Using the information obtained from the algorithm, we next show the ability to project estimated pixel coordinates in to the image plane. These estimated pixel coordinates are described by Equation \ref{xp}.  From this we are able to qualitatively visualize the success of the algorithm in matching provided correspondence points (Figure \ref{pixcoords}). From the estimated pixel coordinates in noiseless reconstructions of the object we calculate the average root mean square error (RMSE) of the position between the true coordinates and their respective estimates in the object frame in order to establish the overall fidelity of the algorithm across multiple images taken with varying rotations, translations, and calibrations. In this case PRMSE is expressed by Equations \ref{dist} and \ref{PRMSE}, where $n_{im}$ is the number of images, and $n_{f} $ is the number of features used:
+\begin{equation}\label{dist}
+d_i = \sqrt{(x_o^{ij}-\hat{x}_o^{ij})+(y_o^{ij}-\hat{y}_o^{ij})+(z_o^{ij}-\hat{z}_o^{ij})}\quad \text{for} \quad j=1,2,...,n_{im}
 \end{equation}
-
-
-
+\begin{equation}\label{PRMSE}
+	PRMSE =\dfrac{\sum_{j=1}^{n_{im}}\sqrt{\sum_{i=1}^{n_f}\sqrt{di/n_f}}}{n_{im}}
+\end{equation}
 \begin{figure}
 	\centering % must do this or your figure won't be centered
-	\includegraphics[width=0.65\textwidth]{pixcoords.eps}
+	\includegraphics[width=0.55\textwidth]{pixcoords.eps}
 	\caption{Estimated pixel coordinates} \label{pixcoords} 
 \end{figure}
-
-
-
+\noindent Across the four tested images (with no noise corruption) through 100 iterations of the algorithm, the average distance error was relatively small at $PRMSE = 0.2763 \quad$\ cm . 
 
 \subsection{Corrupted Correspondence Points}
- Once the results of the algorithm are proven to work on its own data sets we observe the effect of the calibration and pose established by the algorithm on the pure data set (as opposed to the estimated) data to observe the distortions due to noise or error in correspondence. 
-
-\begin{figure}[h]
-	\centering % must do this or your figure won't be centered
-	\captionsetup{justification=centering}
-	\begin{minipage}{0.5\textwidth}
-		\centering
-		\includegraphics[width=1\textwidth]{noise_shift.eps}
-		\caption{Estimated image coordinates} \label{noiseshift}
-	\end{minipage}\hfill
-	\begin{minipage}{0.5\textwidth}
-		\centering % must do this or your figure won't be centered
-		\includegraphics[width=1\textwidth]{noise_shift_recon.eps}
-		\caption{Reconstructed box relative to ground truth} \label{noiserecon}
-	\end{minipage}
-\end{figure}
+ Once the results of the algorithm are proven to work on its own data sets we observe the effect of the calibration and pose established by the algorithm on the pure data set (as opposed to the estimated) data to observe the distortions due to noise or error in correspondence. When applying normally distributed to each component of the correspondence points individually with a standard deviation of $\sigma = 100$ pixels we receive reconstruction results similar to those seen in \ref{noiseall}. From the calibration received, we test the ability to reconstruct the true (uncorrupted) data. This yields considerable disfigurement of the object. The reconstruction of the original box when corrupted by noise and the ground truth can seen in Figure \ref{noiseallrecon}.  To quantitatively capture the results of the noise reconstruction we compare the angles created between the correspondence points. Since the object is a box and the correspondence points lie along the edges, it is expected that all adjacent vectors are orthogonal to each other. 
 
 \begin{figure}[h]
 	\centering % must do this or your figure won't be centered
