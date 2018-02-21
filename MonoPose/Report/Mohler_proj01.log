@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.9.25)  21 FEB 2018 11:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.9.25)  21 FEB 2018 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -380,6 +380,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
 Package epstopdf Info: Source file: <pixcoords.eps>
 (epstopdf)                    date: 2018-02-21 09:04:05
 (epstopdf)                    size: 4719384 bytes
@@ -388,16 +398,37 @@ Package epstopdf Info: Source file: <pixcoords.eps>
 (epstopdf)                    size: 569963 bytes
 (epstopdf)             Command: <repstopdf --outfile=pixcoords-eps-converted-to
 .pdf pixcoords.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
 <pixcoords-eps-converted-to.pdf, id=15, pagebox=cropbox, 421.575pt x 316.18124p
 t>
 File: pixcoords-eps-converted-to.pdf Graphic file (type pdf)
 <use pixcoords-eps-converted-to.pdf>
-Package pdftex.def Info: pixcoords-eps-converted-to.pdf  used on input line 83.
- on input line 83.
-Package pdftex.def Info: Requested size: 258.36667pt x 193.77728pt on input lin
-e 83.
+Package pdftex.def Info: pixcoords-eps-converted-to.pdf  used on input line 92.
+ on input line 92.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
+ 92.
+Package epstopdf Info: Source file: <pure_recon.eps>
+(epstopdf)                    date: 2018-02-21 15:01:01
+(epstopdf)                    size: 18398 bytes
+(epstopdf)             Output file: <pure_recon-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 15:02:36
+(epstopdf)                    size: 9515 bytes
+(epstopdf)             Command: <repstopdf --outfile=pure_recon-eps-converted-t
+o.pdf pure_recon.eps>
+(epstopdf)             \includegraphics on input line 97.
+Package epstopdf Info: Output file is already uptodate.
+<pure_recon-eps-converted-to.pdf, id=16, pagebox=cropbox, 421.575pt x 316.18124
+pt>
+File: pure_recon-eps-converted-to.pdf Graphic file (type pdf)
+<use pure_recon-eps-converted-to.pdf>
+Package pdftex.def Info: pure_recon-eps-converted-to.pdf  used on input line 97
+. on input line 97.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
+ 97.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [2 <./BoxModel.png>]
 Package epstopdf Info: Source file: <noise_all.eps>
 (epstopdf)                    date: 2018-02-21 10:57:02
@@ -407,16 +438,16 @@ Package epstopdf Info: Source file: <noise_all.eps>
 (epstopdf)                    size: 592571 bytes
 (epstopdf)             Command: <repstopdf --outfile=noise_all-eps-converted-to
 .pdf noise_all.eps>
-(epstopdf)             \includegraphics on input line 96.
+(epstopdf)             \includegraphics on input line 129.
 Package epstopdf Info: Output file is already uptodate.
-<noise_all-eps-converted-to.pdf, id=22, pagebox=cropbox, 421.575pt x 316.18124p
+<noise_all-eps-converted-to.pdf, id=23, pagebox=cropbox, 421.575pt x 316.18124p
 t>
 File: noise_all-eps-converted-to.pdf Graphic file (type pdf)
 <use noise_all-eps-converted-to.pdf>
-Package pdftex.def Info: noise_all-eps-converted-to.pdf  used on input line 96.
- on input line 96.
+Package pdftex.def Info: noise_all-eps-converted-to.pdf  used on input line 129
+. on input line 129.
 Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 96.
+ 129.
 Package epstopdf Info: Source file: <noise_all_recon.eps>
 (epstopdf)                    date: 2018-02-21 11:25:33
 (epstopdf)                    size: 19694 bytes
@@ -425,34 +456,90 @@ Package epstopdf Info: Source file: <noise_all_recon.eps>
 (epstopdf)                    size: 10082 bytes
 (epstopdf)             Command: <repstopdf --outfile=noise_all_recon-eps-conver
 ted-to.pdf noise_all_recon.eps>
-(epstopdf)             \includegraphics on input line 101.
+(epstopdf)             \includegraphics on input line 134.
 Package epstopdf Info: Output file is already uptodate.
-<noise_all_recon-eps-converted-to.pdf, id=23, pagebox=cropbox, 421.575pt x 316.
+<noise_all_recon-eps-converted-to.pdf, id=24, pagebox=cropbox, 421.575pt x 316.
 18124pt>
 File: noise_all_recon-eps-converted-to.pdf Graphic file (type pdf)
 <use noise_all_recon-eps-converted-to.pdf>
 Package pdftex.def Info: noise_all_recon-eps-converted-to.pdf  used on input li
-ne 101. on input line 101.
+ne 134. on input line 134.
 Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 101.
+ 134.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <./pixcoords-eps-converted-to.pdf>] [4 <./noise_all-eps-converted-to.pdf> <.
-/noise_all_recon-eps-converted-to.pdf>] (./Mohler_proj01.bbl
+Package epstopdf Info: Source file: <errVstd.eps>
+(epstopdf)                    date: 2018-02-21 16:17:37
+(epstopdf)                    size: 19212 bytes
+(epstopdf)             Output file: <errVstd-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 16:19:54
+(epstopdf)                    size: 9101 bytes
+(epstopdf)             Command: <repstopdf --outfile=errVstd-eps-converted-to.p
+df errVstd.eps>
+(epstopdf)             \includegraphics on input line 141.
+Package epstopdf Info: Output file is already uptodate.
+<errVstd-eps-converted-to.pdf, id=25, pagebox=cropbox, 421.575pt x 316.18124pt>
+
+File: errVstd-eps-converted-to.pdf Graphic file (type pdf)
+<use errVstd-eps-converted-to.pdf>
+Package pdftex.def Info: errVstd-eps-converted-to.pdf  used on input line 141. 
+on input line 141.
+Package pdftex.def Info: Requested size: 281.85585pt x 211.39647pt on input lin
+e 141.
+[3 <./pixcoords-eps-converted-to.pdf> <./pure_recon-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <dimerr.eps>
+(epstopdf)                    date: 2018-02-21 16:41:00
+(epstopdf)                    size: 8767576 bytes
+(epstopdf)             Output file: <dimerr-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 16:41:48
+(epstopdf)                    size: 591981 bytes
+(epstopdf)             Command: <repstopdf --outfile=dimerr-eps-converted-to.pd
+f dimerr.eps>
+(epstopdf)             \includegraphics on input line 152.
+Package epstopdf Info: Output file is already uptodate.
+<dimerr-eps-converted-to.pdf, id=46, pagebox=cropbox, 421.575pt x 316.18124pt>
+File: dimerr-eps-converted-to.pdf Graphic file (type pdf)
+<use dimerr-eps-converted-to.pdf>
+Package pdftex.def Info: dimerr-eps-converted-to.pdf  used on input line 152. o
+n input line 152.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
+ 152.
+Package epstopdf Info: Source file: <dimerr_recon.eps>
+(epstopdf)                    date: 2018-02-21 16:40:48
+(epstopdf)                    size: 18698 bytes
+(epstopdf)             Output file: <dimerr_recon-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 16:41:49
+(epstopdf)                    size: 9659 bytes
+(epstopdf)             Command: <repstopdf --outfile=dimerr_recon-eps-converted
+-to.pdf dimerr_recon.eps>
+(epstopdf)             \includegraphics on input line 157.
+Package epstopdf Info: Output file is already uptodate.
+<dimerr_recon-eps-converted-to.pdf, id=47, pagebox=cropbox, 421.575pt x 316.181
+24pt>
+File: dimerr_recon-eps-converted-to.pdf Graphic file (type pdf)
+<use dimerr_recon-eps-converted-to.pdf>
+Package pdftex.def Info: dimerr_recon-eps-converted-to.pdf  used on input line 
+157. on input line 157.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
+ 157.
+
+[4 <./noise_all-eps-converted-to.pdf> <./noise_all_recon-eps-converted-to.pdf> 
+<./errVstd-eps-converted-to.pdf>] [5 <./dimerr-eps-converted-to.pdf> <./dimerr_
+recon-eps-converted-to.pdf>] [6] (./Mohler_proj01.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [5] (./Mohler_proj01.aux) ) 
+) [7] (./Mohler_proj01.aux) ) 
 Here is how much of TeX's memory you used:
- 5188 strings out of 492990
- 76216 string characters out of 6136349
- 166959 words of memory out of 5000000
- 8665 multiletter control sequences out of 15000+600000
+ 5214 strings out of 492990
+ 76969 string characters out of 6136349
+ 167959 words of memory out of 5000000
+ 8687 multiletter control sequences out of 15000+600000
  12096 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,12n,44p,1127b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 51i,12n,44p,1269b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
@@ -464,10 +551,10 @@ fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type
 sfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
-Output written on Mohler_proj01.pdf (5 pages, 1322518 bytes).
+Output written on Mohler_proj01.pdf (7 pages, 1932379 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 139 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

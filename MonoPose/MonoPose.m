@@ -7,6 +7,7 @@ clear
 close all
 
 meanvec = zeros(100,1);
+angmean = meanvec; 
 
 %read in the images
 i1=imread('Images\cvClass 023.jpg','jpg');
@@ -43,7 +44,7 @@ x3pixmat=[X3'
 x4pixmat=[X4'
     ones(1,mc)];  %convert the points to homogeneous coordinates
 
-for j = 1:100
+% for j = 1:100
     %Corruption of data points with gaussian noise
     x1pixcor = x1pixmat;
     %corruption of each coordinate in each point seperately
@@ -115,20 +116,6 @@ for j = 1:100
        Xoest4(:,i) = Rest4qr'*inv(K4)*(lambda4qr(i)*x4pixest(:,i)-K4*Test4qr); 
     end
 
-    %Average error in each direction and total distance
-    avXRMSE = (sqrt(sum(((Xomat(1,:)-Xoest1(1,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(1,:)-Xoest2(1,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(1,:)-Xoest3(1,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(1,:)-Xoest4(1,:)).^2)/mc)))/4;
-    avYRMSE = (sqrt(sum(((Xomat(1,:)-Xoest1(1,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(2,:)-Xoest2(2,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(2,:)-Xoest3(2,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(2,:)-Xoest4(2,:)).^2)/mc)))/4;
-    avZRMSE = (sqrt(sum(((Xomat(1,:)-Xoest1(1,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(3,:)-Xoest2(3,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(3,:)-Xoest3(3,:)).^2)/mc))+...
-        sqrt(sum(((Xomat(3,:)-Xoest4(3,:)).^2)/mc)))/4;
-
     %Mean Distance PRMSE 
     dist1 = sqrt((Xomat(1,:)-Xoest1(1,:)).^2+(Xomat(2,:)-Xoest1(2,:)).^2 ...
     +(Xomat(3,:)-Xoest1(3,:)).^2);
@@ -143,8 +130,8 @@ for j = 1:100
 
     dist1cor = sqrt((Xomat(1,:)-Xoest1cor(1,:)).^2+(Xomat(2,:)-Xoest1cor(2,:)).^2 ...
     +(Xomat(3,:)-Xoest1cor(3,:)).^2);
-    DRMSEcor = sqrt(sum(dist1cor/mc))/4;
-    meanvec(j) = avDRMSE; 
+    DRMSEcor = sqrt(sum(dist1cor/mc));
+%     meanvec(j) = DRMSEcor; 
     
     %construct vectors between known vertices to check angles
     v12 = Xoest1cor(:,2)-Xoest1cor(:,1);
@@ -166,6 +153,7 @@ for j = 1:100
     v74 = -v47;
     v76 = -v67; 
 
+    %Extract Angles b/w vectors 
     Theta216 = atan2d(norm(cross(v16,v12)),dot(v16,v12));
     Theta127 = atan2d(norm(cross(v27,v21)),dot(v27,v21));
     Theta327 = atan2d(norm(cross(v27,v23)),dot(v27,v23));
@@ -179,9 +167,32 @@ for j = 1:100
     Theta674 = atan2d(norm(cross(v74,v76)),dot(v74,v76));
     Theta724 = atan2d(norm(cross(v72,v74)),dot(v72,v74));
     
-    faceAngles = [Theta216 Theta127 Theta327]
+    faceAngles = [Theta216 Theta127 Theta327 Theta234 Theta347 Theta547...
+        Theta456 Theta567 Theta167 Theta672 Theta674 Theta724];
     
-avg = sum(meanvec)/100 
+    %Print the associated angles to command window (below) 
+    ang1 = ['Point 1 angles: ',num2str(faceAngles(1))];
+    ang2 = ['Point 2 angles: ',num2str(faceAngles(2)),','...
+            ,num2str(faceAngles(3))];
+    ang3 = ['Point 3 angles: ',num2str(faceAngles(4))];
+    ang4 = ['Point 4 angles: ',num2str(faceAngles(5)),','...
+            ,num2str(faceAngles(6))];
+    ang5 = ['Point 5 angles: ',num2str(faceAngles(7))];
+    ang6 = ['Point 6 angles: ',num2str(faceAngles(8)),','...
+            ,num2str(faceAngles(9))];
+    ang7 = ['Point 7 angles: ',num2str(faceAngles(10)),','...
+            ,num2str(faceAngles(11)),',',num2str(faceAngles(12))];
+    ang  = [ang1 ang2 ang3 ang4 ang5 ang6 ang7];
+    disp(ang1)
+    disp(ang2)
+    disp(ang3)
+    disp(ang4)
+    disp(ang5)
+    disp(ang6)
+    disp(ang7)
+    
+% end  
+% avg = sum(meanvec)/100 
 %Images and plotting 
 figure(1)
 clf
@@ -246,6 +257,18 @@ hold off
 
 %Reconstruction of truth and noise boxes
 figure(7)
+clf    
+pts=1:7;
+hold on
+plot3(Xomat(1,pts),Xomat(2,pts),Xomat(3,pts),'--rh')
+plot3(Xoest1(1,pts),Xoest1(2,pts),Xoest1(3,pts),'--k^')
+view(3)
+axis equal
+title('Reconstructed 3D Box Corners')
+legend('Ground Truth','Reconstructed Points')
+hold off
+
+figure(8)
 clf
 pts=1:7;
 hold on
@@ -257,17 +280,3 @@ axis equal
 title('Reconstructed 3D Box Corners (Noisy)')
 legend('Ground Truth','Reconstructed Points')
 hold off
-
-figure(8)
-clf
-pts=1:7;
-hold on
-plot3(Xomat(1,pts),Xomat(2,pts),Xomat(3,pts),'--rh')
-plot3(Xoest1(1,pts),Xoest1(2,pts),Xoest1(3,pts),'--k^')
-view(3)
-axis equal
-title('Reconstructed 3D Box Corners (Noisy)')
-legend('Ground Truth','Reconstructed Points')
-hold off
-
-figure(1)
