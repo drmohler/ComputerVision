@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{float}
+\usepackage{multicol}
 
 
 % if you want other packages, put them here
@@ -29,55 +30,68 @@ Determination of the pose of rigid objects within images is a common problem wit
 \section{Methods and Results}
 The foundation of this project is based on the known dimensions of a given rigid object, a box for example, which is  manually assigned a number of points on the object corresponding to its corners (i.e.\ the coordinates in the object frame represent the dimensions of the object). A model of the initial box and its correspondence points can be seen in Figure \ref{box}, additionally, the measured dimensions of the object are shown in Table \ref{boxdim}. Given this data we are able to proceed with the implementation of the monocular pose algorithm. 
 
-\begin{figure}[h]
-	\centering % must do this or your figure won't be centered
-	\includegraphics[width=0.4\textwidth]{BoxModel.png}
-	\caption{Rigid object model.} \label{box}
-\end{figure}
+
 
 Using the object coordinates in their homogeneous form (i.e.\ $X_o^i = [x_o^i \quad y_o^i \quad z_o^i \quad 1]^T$), we begin with calculating an approximation of the projection matrix, $\Pi_{est}$. The projection matrix is such that $\Pi = [KR \quad KT] \in \Re^{3\times4}$, where $K$ is the camera calibration matrix, $R$ is a rotation matrix, and $T$ is the translation vector. Given that we know the location of the correspondence points, $\chi^{pj}$, and their matching locations in the object frame, $X_0^j$, assuming that a sufficient number of points are provided, we are then able to find an approximation to $\Pi$.This approximation can be expressed as a least squares minimization of Equation \ref{NPI}, where $e_3$ is the standard basis vector $[0 0 1]^T$, $\Pi^S$ is the vectorized or ``stacked'' version of $\Pi$,and $\otimes$ represents the Kronecker product. The least squares estimate of the vectorized projection matrix can be found as the minimum input direction of $N$, which is the final right singular vector yielded from the singular value decomposition (SVD) of $N$.  
 \begin{equation}\label{NPI}
 N^j\Pi^{pj} = [(X_o^{jT}\otimes I_3)-(X_o^{jT}\otimes \chi^{pj}e_3^T)]\Pi^S = 0
 \end{equation}
-From this we are able to de-vectorize the result of the SVD and obtain the $\Pi_{est}$. Using this we are able to extract all of the necessary to describe the calibration and pose of the camera. From order reversing the standard QR decomposition we are able to obtain the scaling factor $\alpha$, the calibration matrix, and the rotation matrices corresponding to the given set of pixel coordinates. Using this information we can lastly find the translation vector associated with the system from the following equation,where $T' = KT$, and is the rightmost column of $\Pi_{est}$: 
-\begin{equation*}\label{NPI}
-	T = \dfrac{K^{-1}T'}{\alpha}
-\end{equation*}
-
-\begin{center}
-	\begin{tabular}[5pt]{| c| c|}
-	\hline
-    Parameter	& Value (cm) \\[0.5ex] 
-	\hline 	
-	$Length$& 45.6  \\ \hline 
-	$Height$& 32.5  \\ \hline 
-	$Width$& 10.1  \\ \hline 
-\end{tabular}
-\captionof{table}{Object Dimensions}\label{boxdim}
-\end{center}
-
-	\begin{figure}[h]
+\begin{figure}[h]
 	\centering % must do this or your figure won't be centered
 	\captionsetup{justification=centering}
 	\begin{minipage}{0.5\textwidth}
-		\centering
-		\includegraphics[width=1\textwidth]{noise_shift.eps}
-		\caption{Estimated image coordinates} \label{noiseshift}
+		\centering % must do this or your figure won't be centered
+		\includegraphics[width=0.9\textwidth]{BoxModel.png}
+		\caption{Rigid object model.} \label{box}
 	\end{minipage}\hfill
 	\begin{minipage}{0.5\textwidth}
-		\centering % must do this or your figure won't be centered
-		\includegraphics[width=1\textwidth]{noise_shift_recon.eps}
-		\caption{Reconstructed box relative to ground truth} \label{noiserecon}
+		\begin{center}
+			\begin{tabular}[5pt]{| c| c|}
+				\hline
+				Parameter	& Value (cm) \\[0.5ex] 
+				\hline 	
+				$Length$& 45.6  \\ \hline 
+				$Height$& 32.5  \\ \hline 
+				$Width$& 10.1  \\ \hline 
+			\end{tabular}
+			\captionof{table}{Object Dimensions}\label{boxdim}
+		\end{center}	
 	\end{minipage}
 \end{figure}
 
-\begin{equation}\label{xp}
-	\chi^{pj} = \dfrac{\Pi_{est} X_0^j}{\lambda^j}
+\noindent From this we are able to de-vectorize the result of the SVD and obtain $\Pi_{est}$. Using this we extract all of the necessary components to describe the calibration and pose of the camera. From order reversing the standard QR decomposition we are able to obtain the scaling factor $\alpha$, the calibration matrix, and the rotation matrices corresponding to the given set of pixel coordinates. Using this information we can lastly find the translation vector associated with the system from the following equation,where $T' = KT$, and is the rightmost column of $\Pi_{est}$: 
+
+\begin{multicols}{2}
+	\begin{equation}\label{Teq}
+		T = \dfrac{K^{-1}T'}{\alpha}
+	\end{equation}\break
+	\begin{equation}\label{xp}
+		\chi^{pj} = \dfrac{\Pi_{est} X_0^j}{\lambda^j}
+	\end{equation}\break
+\end{multicols}
+
+Using the information obtained from the algorithm, we next show the ability to project estimated pixel coordinates in to the image plane. These estimated pixel coordinates are described by Equation \ref{xp}.  From this we are able to qualitatively visualize the success of the algorithm in matching provided correspondence points. From the estimated pixel coordinates in noiseless reconstructions of the object we calculate the average root mean square error (RMSE) of the position between the true coordinates and their respective estimates in the object frame in order to establish the overall fidelity of the algorithm across multiple images taken with varying rotations, translations, and calibrations. In this case PRMSE is expressed as:
+
+%DO THE PRMSE EQN!!
+\begin{equation}
+	content...
 \end{equation}
 
-\subsection{Corrupted Correspondence Points}
 
-	\begin{figure}[h]
+
+\begin{figure}
+	\centering % must do this or your figure won't be centered
+	\includegraphics[width=0.65\textwidth]{pixcoords.eps}
+	\caption{Estimated pixel coordinates} \label{pixcoords} 
+\end{figure}
+
+
+
+
+\subsection{Corrupted Correspondence Points}
+ Once the results of the algorithm are proven to work on its own data sets we observe the effect of the calibration and pose established by the algorithm on the pure data set (as opposed to the estimated) data to observe the distortions due to noise or error in correspondence. 
+
+\begin{figure}[h]
 	\centering % must do this or your figure won't be centered
 	\captionsetup{justification=centering}
 	\begin{minipage}{0.5\textwidth}
@@ -92,7 +106,7 @@ From this we are able to de-vectorize the result of the SVD and obtain the $\Pi_
 	\end{minipage}
 \end{figure}
 
-	\begin{figure}[h]
+\begin{figure}[h]
 	\centering % must do this or your figure won't be centered
 	\captionsetup{justification=centering}
 	\begin{minipage}{0.5\textwidth}
@@ -112,10 +126,6 @@ From this we are able to de-vectorize the result of the SVD and obtain the $\Pi_
 
 
 \section{Conclusions}
-
-In this project we have demonstrated two major methods critical to estimation and uncertainty quantification. The first being a method to sample from any arbitrary closed functional form of a continuous probability distribution, and the second being the application of the Expectation Maximization algorithm to a probability mixture model. For our implementation the rejection sampling method is essential to the proper operation of the EM algorithm. Rejection sampling provides a simple method for artificial data generation. By varying the number of data points that we wish to sample from our known functional form of the distribution we are able to view the accuracy of the sampled PDF relative to the true curve. It is noted that the number of data points required to generate an ``accurate'' curve is application and computational burden dependent. For the purposes of this project we found that samples ranging in the low hundreds did not provide enough data to create a decent approximation, however, beyond 1000 samples we were able to obtain good results with low margins of error. From this, we note that balancing between excessive computation and accuracy requirements lacks a singular hard threshold and should be approached with the specific design parameters in mind.
-
-The Expectation Maximization algorithm has proven itself to be a fairly robust tool for the approximation of distribution parameters. When provided with a sufficient number of samples and reasonable initializations of the estimated parameters EM is,on average, capable of producing results with single digit error precision (percentage).  However, it is not entirely immune to failure. The algorithm diverges in cases where it is initially assumed that the weight of any given component is zero, or the variance of any given Gaussian component is initialized with a zero value. Similarly, while not entirely failing, the margin of error that occurs in the impoverished case of too few samples provided to the algorithm is vastly larger on average. This error margin was observed to reach a mean of as high as nearly $41\%$ error, roughly 8 times as large as that of the trials performed with a sufficient number of samples. We have also demonstrated that the algorithm tends to provide better performance when faced with distributions that are, for the most part distinct and separate. Whereas when tasked with a distribution that is heavily mixed and the components are largely indistinguishable from one another, the performance is much poorer, even with strong initialization parameters.
 
 
 
