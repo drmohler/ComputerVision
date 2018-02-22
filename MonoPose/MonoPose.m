@@ -51,7 +51,6 @@ x4pixmat=[X4'
     for i = 1:mc
       x1pixcor(1,i) = x1pixmat(1,i)+100*randn(1,1);
       x1pixcor(2,i) = x1pixmat(2,i)+100*randn(1,1);
-    %   x1pixcor(3,i) = x1pixmat(3,i)+10*randn(1,1);
     end
 
     %Corrupting all coordinates equally across correspondence points
@@ -69,8 +68,9 @@ x4pixmat=[X4'
     [gest1qr,lambda1qr,K1]=monoPoseQR(Xomat,x1pixmat); %find K, depth, and g
     Rest1qr=gest1qr(1:3,1:3);Test1qr=gest1qr(1:3,4); %Extraction of R and T
 
-    [gest1cor,lambda1cor,K1cor]=monoPoseQR(Xomat,x1pixcor); %find K,depth, & g
-    Rest1cor=gest1cor(1:3,1:3);Test1cor=gest1cor(1:3,4); %Extraction of R and T
+     %cor indicates corrupted data 
+    [gest1cor,lambda1cor,K1cor]=monoPoseQR(Xomat,x1pixcor);
+    Rest1cor=gest1cor(1:3,1:3);Test1cor=gest1cor(1:3,4);
 
     [gest2qr,lambda2qr,K2]=monoPoseQR(Xomat,x2pixmat);
     Rest2qr=gest2qr(1:3,1:3);Test2qr=gest2qr(1:3,4);
@@ -111,9 +111,9 @@ x4pixmat=[X4'
        Xoest1(:,i) = Rest1qr'*inv(K1)*(lambda1qr(i)*x1pixmat(:,i)-K1*Test1qr);
        Xoest1cor(:,i) = Rest1cor'*inv(K1cor)*...
                             (lambda1cor(i)*x1pixmat(:,i)-K1cor*Test1cor);
-       Xoest2(:,i) = Rest2qr'*inv(K2)*(lambda2qr(i)*x2pixest(:,i)-K2*Test2qr); 
-       Xoest3(:,i) = Rest3qr'*inv(K3)*(lambda3qr(i)*x3pixest(:,i)-K3*Test3qr); 
-       Xoest4(:,i) = Rest4qr'*inv(K4)*(lambda4qr(i)*x4pixest(:,i)-K4*Test4qr); 
+       Xoest2(:,i) = Rest2qr'*inv(K2)*(lambda2qr(i)*x2pixmat(:,i)-K2*Test2qr); 
+       Xoest3(:,i) = Rest3qr'*inv(K3)*(lambda3qr(i)*x3pixmat(:,i)-K3*Test3qr); 
+       Xoest4(:,i) = Rest4qr'*inv(K4)*(lambda4qr(i)*x4pixmat(:,i)-K4*Test4qr); 
     end
 
     %Mean Distance PRMSE 
@@ -243,7 +243,7 @@ clf
 pts=1:7;
 plot3(Xomat(1,pts),Xomat(2,pts),Xomat(3,pts),'--rh')
 axis equal
-title('3D Box Corners')
+title('3D Box Corners (Ground Truth)')
 hold off
 
 figure(6)
@@ -264,8 +264,8 @@ plot3(Xomat(1,pts),Xomat(2,pts),Xomat(3,pts),'--rh')
 plot3(Xoest1(1,pts),Xoest1(2,pts),Xoest1(3,pts),'--k^')
 view(3)
 axis equal
-title('Reconstructed 3D Box Corners')
-legend('Ground Truth','Reconstructed Points')
+title('Reconstructed 3D Box Corners From True Data')
+legend('Ground Truth','Reconstructed Pure Points')
 hold off
 
 figure(8)

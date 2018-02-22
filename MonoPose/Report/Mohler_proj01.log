@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.9.25)  21 FEB 2018 16:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.2.20)  21 FEB 2018 22:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./Mohler_proj01.tex
 (./Mohler_proj01.tex
 LaTeX2e <2017-04-15>
-Babel <3.13> and hyphenation patterns for 84 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (c:/texlive/2017/texmf-dist/tex/latex/base/size12.clo
@@ -44,7 +44,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
 (c:/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
@@ -252,22 +252,32 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \mult@nat@firstbox=\box56
 \colbreak@box=\box57
 \mc@col@check@num=\count124
-) (./Mohler_proj01.aux)
+) (./Mohler_proj01.aux
+
+LaTeX Warning: Label `pure_recon' multiply defined.
+
+
+LaTeX Warning: Label `pixcoords' multiply defined.
+
+
+LaTeX Warning: Label `pure_recon' multiply defined.
+
+)
 \openout1 = `Mohler_proj01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-(c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+ (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count125
 \scratchdimen=\dimen135
@@ -314,7 +324,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
@@ -341,12 +351,12 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+LaTeX Font Info:    Try loading font information for U+msa on input line 25.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+LaTeX Font Info:    Try loading font information for U+msb on input line 25.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -354,207 +364,278 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <BoxModel.png, id=1, 526.96875pt x 526.96875pt>
 File: BoxModel.png Graphic file (type png)
 <use BoxModel.png>
-Package pdftex.def Info: BoxModel.png  used on input line 44. on input line 44.
-
-Package pdftex.def Info: Requested size: 176.15811pt x 176.1597pt on input line
- 44.
+Package pdftex.def Info: BoxModel.png  used on input line 45.
+(pdftex.def)             Requested size: 176.15811pt x 176.1597pt.
  [1
 
 {c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
+
+
+Package caption Warning: \label without proper reference on input line 192.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `pixcoords' on page 2 undefined on input line 79.
 
 Package epstopdf Info: Source file: <pixcoords.eps>
-(epstopdf)                    date: 2018-02-21 09:04:05
-(epstopdf)                    size: 4719384 bytes
+(epstopdf)                    date: 2018-02-20 23:32:49
+(epstopdf)                    size: 4661858 bytes
 (epstopdf)             Output file: <pixcoords-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 09:45:29
+(epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 569963 bytes
 (epstopdf)             Command: <repstopdf --outfile=pixcoords-eps-converted-to
 .pdf pixcoords.eps>
-(epstopdf)             \includegraphics on input line 92.
+(epstopdf)             \includegraphics on input line 94.
 Package epstopdf Info: Output file is already uptodate.
-<pixcoords-eps-converted-to.pdf, id=15, pagebox=cropbox, 421.575pt x 316.18124p
-t>
+<pixcoords-eps-converted-to.pdf, id=15, 421.575pt x 316.18124pt>
 File: pixcoords-eps-converted-to.pdf Graphic file (type pdf)
 <use pixcoords-eps-converted-to.pdf>
-Package pdftex.def Info: pixcoords-eps-converted-to.pdf  used on input line 92.
- on input line 92.
-Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 92.
+Package pdftex.def Info: pixcoords-eps-converted-to.pdf  used on input line 94.
+
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <pure_recon.eps>
-(epstopdf)                    date: 2018-02-21 15:01:01
-(epstopdf)                    size: 18398 bytes
+(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    size: 18619 bytes
 (epstopdf)             Output file: <pure_recon-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 15:02:36
+(epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 9515 bytes
 (epstopdf)             Command: <repstopdf --outfile=pure_recon-eps-converted-t
 o.pdf pure_recon.eps>
-(epstopdf)             \includegraphics on input line 97.
+(epstopdf)             \includegraphics on input line 99.
 Package epstopdf Info: Output file is already uptodate.
-<pure_recon-eps-converted-to.pdf, id=16, pagebox=cropbox, 421.575pt x 316.18124
-pt>
+<pure_recon-eps-converted-to.pdf, id=16, 421.575pt x 316.18124pt>
 File: pure_recon-eps-converted-to.pdf Graphic file (type pdf)
 <use pure_recon-eps-converted-to.pdf>
-Package pdftex.def Info: pure_recon-eps-converted-to.pdf  used on input line 97
-. on input line 97.
-Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 97.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+Package pdftex.def Info: pure_recon-eps-converted-to.pdf  used on input line 99
+.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 [2 <./BoxModel.png>]
 Package epstopdf Info: Source file: <noise_all.eps>
-(epstopdf)                    date: 2018-02-21 10:57:02
-(epstopdf)                    size: 8769359 bytes
+(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    size: 8877577 bytes
 (epstopdf)             Output file: <noise_all-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 10:57:20
+(epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 592571 bytes
 (epstopdf)             Command: <repstopdf --outfile=noise_all-eps-converted-to
 .pdf noise_all.eps>
-(epstopdf)             \includegraphics on input line 129.
+(epstopdf)             \includegraphics on input line 128.
 Package epstopdf Info: Output file is already uptodate.
-<noise_all-eps-converted-to.pdf, id=23, pagebox=cropbox, 421.575pt x 316.18124p
-t>
+<noise_all-eps-converted-to.pdf, id=23, 421.575pt x 316.18124pt>
 File: noise_all-eps-converted-to.pdf Graphic file (type pdf)
 <use noise_all-eps-converted-to.pdf>
-Package pdftex.def Info: noise_all-eps-converted-to.pdf  used on input line 129
-. on input line 129.
-Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 129.
+Package pdftex.def Info: noise_all-eps-converted-to.pdf  used on input line 128
+.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <noise_all_recon.eps>
-(epstopdf)                    date: 2018-02-21 11:25:33
-(epstopdf)                    size: 19694 bytes
+(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    size: 19921 bytes
 (epstopdf)             Output file: <noise_all_recon-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 11:25:40
+(epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 10082 bytes
 (epstopdf)             Command: <repstopdf --outfile=noise_all_recon-eps-conver
 ted-to.pdf noise_all_recon.eps>
-(epstopdf)             \includegraphics on input line 134.
+(epstopdf)             \includegraphics on input line 133.
 Package epstopdf Info: Output file is already uptodate.
-<noise_all_recon-eps-converted-to.pdf, id=24, pagebox=cropbox, 421.575pt x 316.
-18124pt>
+<noise_all_recon-eps-converted-to.pdf, id=24, 421.575pt x 316.18124pt>
 File: noise_all_recon-eps-converted-to.pdf Graphic file (type pdf)
 <use noise_all_recon-eps-converted-to.pdf>
 Package pdftex.def Info: noise_all_recon-eps-converted-to.pdf  used on input li
-ne 134. on input line 134.
-Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 134.
+ne 133.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package epstopdf Info: Source file: <errVstd.eps>
-(epstopdf)                    date: 2018-02-21 16:17:37
-(epstopdf)                    size: 19212 bytes
+(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    size: 19342 bytes
 (epstopdf)             Output file: <errVstd-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 16:19:54
+(epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 9101 bytes
 (epstopdf)             Command: <repstopdf --outfile=errVstd-eps-converted-to.p
 df errVstd.eps>
-(epstopdf)             \includegraphics on input line 141.
+(epstopdf)             \includegraphics on input line 140.
 Package epstopdf Info: Output file is already uptodate.
-<errVstd-eps-converted-to.pdf, id=25, pagebox=cropbox, 421.575pt x 316.18124pt>
-
+<errVstd-eps-converted-to.pdf, id=25, 421.575pt x 316.18124pt>
 File: errVstd-eps-converted-to.pdf Graphic file (type pdf)
 <use errVstd-eps-converted-to.pdf>
-Package pdftex.def Info: errVstd-eps-converted-to.pdf  used on input line 141. 
-on input line 141.
-Package pdftex.def Info: Requested size: 281.85585pt x 211.39647pt on input lin
-e 141.
+Package pdftex.def Info: errVstd-eps-converted-to.pdf  used on input line 140.
+(pdftex.def)             Requested size: 281.85585pt x 211.39647pt.
 [3 <./pixcoords-eps-converted-to.pdf> <./pure_recon-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <dimerr.eps>
-(epstopdf)                    date: 2018-02-21 16:41:00
-(epstopdf)                    size: 8767576 bytes
+(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    size: 8875764 bytes
 (epstopdf)             Output file: <dimerr-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 16:41:48
+(epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 591981 bytes
 (epstopdf)             Command: <repstopdf --outfile=dimerr-eps-converted-to.pd
 f dimerr.eps>
-(epstopdf)             \includegraphics on input line 152.
+(epstopdf)             \includegraphics on input line 151.
 Package epstopdf Info: Output file is already uptodate.
-<dimerr-eps-converted-to.pdf, id=46, pagebox=cropbox, 421.575pt x 316.18124pt>
+<dimerr-eps-converted-to.pdf, id=46, 421.575pt x 316.18124pt>
 File: dimerr-eps-converted-to.pdf Graphic file (type pdf)
 <use dimerr-eps-converted-to.pdf>
-Package pdftex.def Info: dimerr-eps-converted-to.pdf  used on input line 152. o
-n input line 152.
-Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 152.
+Package pdftex.def Info: dimerr-eps-converted-to.pdf  used on input line 151.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <dimerr_recon.eps>
-(epstopdf)                    date: 2018-02-21 16:40:48
-(epstopdf)                    size: 18698 bytes
+(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    size: 18920 bytes
 (epstopdf)             Output file: <dimerr_recon-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 16:41:49
+(epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 9659 bytes
 (epstopdf)             Command: <repstopdf --outfile=dimerr_recon-eps-converted
 -to.pdf dimerr_recon.eps>
-(epstopdf)             \includegraphics on input line 157.
+(epstopdf)             \includegraphics on input line 156.
 Package epstopdf Info: Output file is already uptodate.
-<dimerr_recon-eps-converted-to.pdf, id=47, pagebox=cropbox, 421.575pt x 316.181
-24pt>
+<dimerr_recon-eps-converted-to.pdf, id=47, 421.575pt x 316.18124pt>
 File: dimerr_recon-eps-converted-to.pdf Graphic file (type pdf)
 <use dimerr_recon-eps-converted-to.pdf>
 Package pdftex.def Info: dimerr_recon-eps-converted-to.pdf  used on input line 
-157. on input line 157.
-Package pdftex.def Info: Requested size: 234.87749pt x 176.1581pt on input line
- 157.
+156.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 
 [4 <./noise_all-eps-converted-to.pdf> <./noise_all_recon-eps-converted-to.pdf> 
 <./errVstd-eps-converted-to.pdf>] [5 <./dimerr-eps-converted-to.pdf> <./dimerr_
-recon-eps-converted-to.pdf>] [6] (./Mohler_proj01.bbl
+recon-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <im1.eps>
+(epstopdf)                    date: 2018-02-21 22:23:12
+(epstopdf)                    size: 6262996 bytes
+(epstopdf)             Output file: <im1-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 22:25:21
+(epstopdf)                    size: 980944 bytes
+(epstopdf)             Command: <repstopdf --outfile=im1-eps-converted-to.pdf i
+m1.eps>
+(epstopdf)             \includegraphics on input line 176.
+Package epstopdf Info: Output file is already uptodate.
+<im1-eps-converted-to.pdf, id=96, 421.575pt x 316.18124pt>
+File: im1-eps-converted-to.pdf Graphic file (type pdf)
+<use im1-eps-converted-to.pdf>
+Package pdftex.def Info: im1-eps-converted-to.pdf  used on input line 176.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
+Package epstopdf Info: Source file: <im2.eps>
+(epstopdf)                    date: 2018-02-21 22:23:03
+(epstopdf)                    size: 5244251 bytes
+(epstopdf)             Output file: <im2-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 22:25:23
+(epstopdf)                    size: 851348 bytes
+(epstopdf)             Command: <repstopdf --outfile=im2-eps-converted-to.pdf i
+m2.eps>
+(epstopdf)             \includegraphics on input line 181.
+Package epstopdf Info: Output file is already uptodate.
+<im2-eps-converted-to.pdf, id=97, 421.575pt x 316.18124pt>
+File: im2-eps-converted-to.pdf Graphic file (type pdf)
+<use im2-eps-converted-to.pdf>
+Package pdftex.def Info: im2-eps-converted-to.pdf  used on input line 181.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
+Package epstopdf Info: Source file: <im3.eps>
+(epstopdf)                    date: 2018-02-21 22:23:26
+(epstopdf)                    size: 5763626 bytes
+(epstopdf)             Output file: <im3-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 22:25:25
+(epstopdf)                    size: 915412 bytes
+(epstopdf)             Command: <repstopdf --outfile=im3-eps-converted-to.pdf i
+m3.eps>
+(epstopdf)             \includegraphics on input line 190.
+Package epstopdf Info: Output file is already uptodate.
+<im3-eps-converted-to.pdf, id=98, 421.575pt x 316.18124pt>
+File: im3-eps-converted-to.pdf Graphic file (type pdf)
+<use im3-eps-converted-to.pdf>
+Package pdftex.def Info: im3-eps-converted-to.pdf  used on input line 190.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
+Package epstopdf Info: Source file: <im4.eps>
+(epstopdf)                    date: 2018-02-21 22:23:38
+(epstopdf)                    size: 5800635 bytes
+(epstopdf)             Output file: <im4-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-21 22:25:27
+(epstopdf)                    size: 886711 bytes
+(epstopdf)             Command: <repstopdf --outfile=im4-eps-converted-to.pdf i
+m4.eps>
+(epstopdf)             \includegraphics on input line 195.
+Package epstopdf Info: Output file is already uptodate.
+<im4-eps-converted-to.pdf, id=99, 421.575pt x 316.18124pt>
+File: im4-eps-converted-to.pdf Graphic file (type pdf)
+<use im4-eps-converted-to.pdf>
+Package pdftex.def Info: im4-eps-converted-to.pdf  used on input line 195.
+(pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
+ [6 <./im1-eps-converted-to.pdf> <./im2-eps-converted-to.pdf> <./im3-eps-conver
+ted-to.pdf> <./im4-eps-converted-to.pdf>]
+(./MonoPose.m [7]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 52.
+ (c:/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 52.
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
+[8] [9] [10] [11] [12]) (./MonoPoseQR.m [13]) (./qrCommute.m [14]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 32.
 
-) [7] (./Mohler_proj01.aux) ) 
+(c:/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 32.
+) [15]
+(./Mohler_proj01.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5214 strings out of 492990
- 76969 string characters out of 6136349
- 167959 words of memory out of 5000000
- 8687 multiletter control sequences out of 15000+600000
- 12096 words of font info for 47 fonts, out of 8000000 for 9000
+ 5994 strings out of 492982
+ 86106 string characters out of 6136225
+ 321292 words of memory out of 5000000
+ 9457 multiletter control sequences out of 15000+600000
+ 12572 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,12n,44p,1269b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmex10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
-b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
->
-Output written on Mohler_proj01.pdf (7 pages, 1932379 bytes).
+ 51i,11n,44p,1301b,1998s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
+fb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Mohler_proj01.pdf (15 pages, 5603934 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 213 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

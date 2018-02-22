@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{multicol}
+\setlength{\multicolsep}{6.0pt plus 2.0pt minus 1.5pt}%
 
 
 % if you want other packages, put them here
@@ -50,31 +51,32 @@ N^j\Pi^{pj} = [(X_o^{jT}\otimes I_3)-(X_o^{jT}\otimes \chi^{pj}e_3^T)]\Pi^S = 0
 				\hline
 				Parameter	& Value (cm) \\[0.5ex] 
 				\hline 	
-				$Length$& 45.6  \\ \hline 
-				$Height$& 32.5  \\ \hline 
-				$Width$& 10.1  \\ \hline 
+				Length& 45.6  \\ \hline 
+				Height& 32.5  \\ \hline 
+				Width& 10.1  \\ \hline 
 			\end{tabular}
 			\captionof{table}{Object Dimensions}\label{boxdim}
 		\end{center}	
 	\end{minipage}
 \end{figure}
 
-\noindent From this we de-vectorize the result of the SVD and obtain $\Pi_{est}$. Using this, all necessary components to describe the calibration and pose of the camera are extracted. From order reversing the standard QR decomposition we are able to obtain the scaling factor $\alpha$, the calibration matrix, and the rotation matrices corresponding to the given set of pixel coordinates. Using this information we can lastly find the translation vector associated with the system from the following equation,where $T^{'} = KT$, and is the rightmost column of $\Pi_{est}$: 
+\noindent From this we de-vectorize the result of the SVD and obtain $\Pi_{est}$. Using this, all necessary components to describe the calibration and pose of the camera are extracted. From order reversing the standard QR decomposition we are able to obtain the scaling factor $\alpha$, the calibration matrix, and the rotation matrices corresponding to the given set of pixel coordinates. Using this information we can lastly find the translation vector associated with the system from the following equation,where $T^{'} = KT$, and is the rightmost column of $\Pi_{est}$: \nolinebreak
 
 \begin{multicols}{3}
+	
 	\begin{equation}\label{Teq}
 		T = \dfrac{K^{-1}T^{'}}{\alpha}
 	\end{equation}\break
+	\noindent
 	\begin{equation}\label{xp}
 		\chi^{pj} = \dfrac{\Pi_{est} X_0^j}{\lambda^j}
 	\end{equation}\break
+	\noindent
 	\begin{equation}\label{xo}
 	X_o^{pj} = R^TK^{-1}(\lambda\chi^p-KT)
 	\end{equation}\break
 \end{multicols}
-
-
-Using the information obtained from the algorithm, we next show the ability to project estimated pixel coordinates in to the image plane. These estimated pixel coordinates are described by Equation \ref{xp}.  From this we are able to qualitatively visualize the success of the algorithm in matching provided correspondence points (Figure \ref{pixcoords}). From the estimated pixel coordinates in noiseless reconstructions of the object, using Equation \ref{xo}, we calculate the average root mean square error (RMSE) of the position between the true coordinates and their respective estimates in the object frame in order to establish the overall fidelity of the algorithm across multiple images taken with varying rotations, translations, and calibrations. In this case PRMSE is expressed by Equations \ref{dist} and \ref{PRMSE}, where $n_{im}$ is the number of images, and $n_{f} $ is the number of features used:
+Using the information obtained from the algorithm, we next show the ability to project estimated pixel coordinates in to the image plane. These estimated pixel coordinates are described by Equation \ref{xp}.  From this we are able to qualitatively visualize the success of the algorithm in matching provided correspondence points (Figure \ref{pixcoords}). In order to do so, we apply the algorithm to four different images of the same object (See Appendix A), all taken from seperate locations, thus enabling the ability to test the algorithm against multiple view points. From the estimated pixel coordinates in noiseless reconstructions of the object, using Equation \ref{xo}, we calculate the average root mean square error (RMSE) of the position between the true coordinates and their respective estimates in the object frame in order to establish the overall fidelity of the algorithm across multiple images taken with varying rotations, translations, and calibrations. In this case PRMSE is expressed by Equations \ref{dist} and \ref{PRMSE}, where $n_{im}$ is the number of images, and $n_{f} $ is the number of features used:
 \begin{equation}\label{dist}
 d_i = \sqrt{(x_o^{ij}-\hat{x}_o^{ij})+(y_o^{ij}-\hat{y}_o^{ij})+(z_o^{ij}-\hat{z}_o^{ij})}\quad \text{for} \quad j=1,2,...,n_{im}
 \end{equation}
@@ -98,9 +100,6 @@ d_i = \sqrt{(x_o^{ij}-\hat{x}_o^{ij})+(y_o^{ij}-\hat{y}_o^{ij})+(z_o^{ij}-\hat{z
 		\caption{Reconstructed box relative to ground truth} \label{pure_recon}
 	\end{minipage}
 \end{figure}
-
-
-
 
 \noindent Across the four tested images (with no noise corruption) through 100 iterations of the algorithm, the average distance error was relatively small at $PRMSE = 0.2763 \quad$\ cm . 
 
@@ -135,7 +134,7 @@ d_i = \sqrt{(x_o^{ij}-\hat{x}_o^{ij})+(y_o^{ij}-\hat{y}_o^{ij})+(z_o^{ij}-\hat{z
 		\caption{Reconstructed box relative to ground truth} \label{noiseallrecon}
 	\end{minipage}
 \end{figure}
-As would be expected, the angles are centered about the appropriate mean value of $90$ degrees, however the deviations from precisely right angles by as much as $15.53$ degrees shows the obvious loss of the shape of the true object upon reconstruction. Similarly, the reliability of the reconstruction is tied to the amount of noise introduced in to the captured pixel coordinates. Under the condition of $\sigma = 100$ pixels, using 100 successive trials of the algorithm, there is an average PRMSE introduced of 1.65 cm, or an increase of error by approximately $595.4\%$. Through observation of various noise levels we observe that the RMS position error is (nearly) linear with the standard deviation of the noise (Figure \ref{errVstd}). It is essential to note that beyond a standard deviation of approximately 200 pixels it becomes common for pixels to be projected in to non-existent pixel mappings, and as such are obviously invalid results. 
+As would be expected, the angles are centered about the appropriate mean value of $90$ degrees, however the deviations from precisely right angles by as much as $15.53$ degrees shows the obvious loss of the shape of the true object upon reconstruction. Similarly, the reliability of the reconstruction is tied to the amount of noise introduced in to the captured pixel coordinates. Under the condition of $\sigma = 100$ pixels, using 100 successive trials of the algorithm, there is an average PRMSE introduced of 1.65 cm, or an increase of error by approximately $595.4\%$. Through observation of various noise levels we observe that the RMS position error is (nearly) linear with the standard deviation of the noise (Figure \ref{errVstd}). It is essential to note that beyond a standard deviation of approximately 200 pixels it becomes common for pixels to be projected in to non-existent pixel mappings, and as such, are obviously invalid results. 
 \begin{figure}[h]
 	\centering % must do this or your figure won't be centered
 	\includegraphics[width=.6\textwidth]{errVstd.eps}
@@ -158,32 +157,62 @@ In order for the monocular pose algorithm to appropriately calibrate and success
 		\caption{Reconstructed box relative to ground truth (inaccurate dimensions)} \label{dimerrrecon}
 	\end{minipage}
 \end{figure}
-Given only the image coordinate projections it could easily be assumed that the algorithm had appropriately reconstructed the box, despite the wrong dimensions. However, we then project these pixel coordinates and find that in the object frame, the computer believes that the reconstruction should match the dimensions that were provided by the user (see Figure \ref{dimerrrecon}). 
-
-%DISCUSS THE T VECTOR AND OBVIOUSLY MISLEADING IMAGES 
+Given only the image coordinate projections it could easily be assumed that the algorithm had appropriately reconstructed the box, despite the wrong dimensions. However, we then project these pixel coordinates and find that in the object frame, the computer believes that the reconstruction should match the dimensions that were provided by the user (see Figure \ref{dimerrrecon}). Numerical evidence lies within the translation vector, $T$, yielded by the monocular pose algorithm. For instance, using the initial given image (Figure \ref{noiseall}) it can be found that $T = [-21.8 \quad -33.8 \quad 90.0]^T$ cm which has a length of $98.61$ centimeters. In order for the algorithm to provide a reconstruction of the box where the width is falsely increased by a factor of ten that the translation vector is $T=[507.8 \quad -121.1 \quad 99.2]^T$ which has a length of $531.4 cm$. This implies that without the true box having been moved in the image, the translation vector implies that the origin of the box is an additional 4.32 meters farther away than it is in reality. As such, this algorithm, has potential for exceedingly poor calibration and misleading visual results in the event that objects being used to calibrate the system are not properly measured. 
 
 \section{Conclusions}
-
+In this project we have demonstrated the ability to compute the necessary information for the simultaneous calibration and pose estimation of a single monocular camera. The algorithm itself proved to be a fairly straightforward implementation, and in ideal or near ideal environments is able to provide reasonable estimates of the calibration of the camera, the object pose, and associated depths to the known correspondence points. However, this algorithm is not without its own problems. In the presence of high levels of noise corrupting the correspondence points a near linear increase in 3D position error is shown, and as a result the orthogonality of the box reconstruction is compromised beyond reasonable tolerances. Also, we have shown that in the event of inaccurate measurements of calibration objects being delivered to the algorithm that it is incapable of providing accurate scene reconstructions as well as yielding misleading images that are poorly indicative of the error that has occurred. 
 
 
 \appendix % this command sets sectioning command to the appendix format
 % uncomment the next line to start on a fresh page
-\newpage
 
+
+\section{Additional Images}
+\begin{figure}[h]
+	\centering % must do this or your figure won't be centered
+	\captionsetup{justification=centering}
+	\begin{minipage}{0.5\textwidth}
+		\centering % must do this or your figure won't be centered
+		\includegraphics[width=1\textwidth]{im1.eps}
+		\label{im1} 
+	\end{minipage}\hfill
+	\begin{minipage}{0.5\textwidth}
+		\centering % must do this or your figure won't be centered
+		\includegraphics[width=1\textwidth]{im2.eps}
+		 \label{pure_recon}
+	\end{minipage}
+\end{figure}
+\begin{figure}[h]
+	\centering % must do this or your figure won't be centered
+	\captionsetup{justification=centering}
+	\begin{minipage}{0.5\textwidth}
+		\centering % must do this or your figure won't be centered
+		\includegraphics[width=1\textwidth]{im3.eps}
+		 \label{pixcoords} 
+	\end{minipage}\hfill
+	\begin{minipage}{0.5\textwidth}
+		\centering % must do this or your figure won't be centered
+		\includegraphics[width=1\textwidth]{im4.eps}
+		\label{pure_recon}
+	\end{minipage}
+	\caption{Four tested images.}
+\end{figure}
+
+\newpage
 \section{Code Listings}\label{code}
 
 % input the file containing the code
-%\lstinputlisting[caption={Top level implementation for Monocular Calibration and Pose Estimation},label={proj}]{MonoPose.m}
-%\lstinputlisting[caption={QR Decomp Based Algorithm Implementation},label={alg}]{MonoPoseQR.m} 
-%\lstinputlisting[caption={Rearranged QR Decomposition (Credit: Dr. John McInroy)},label={qrCom}]{qrCommute.m}
+\lstinputlisting[caption={Top level implementation for Monocular Calibration and Pose Estimation},label={proj}]{MonoPose.m}
+\lstinputlisting[caption={QR Decomp Based Algorithm Implementation},label={alg}]{MonoPoseQR.m} 
+\lstinputlisting[caption={Rearranged QR Decomposition (Credit: Dr. John McInroy)},label={qrCom}]{qrCommute.m}
 
 
 %% The commands below automatically generate the References section
 %% using the ``sample_bib'' file I've given you.
 
-\newpage  % start a new page
-
-\bibliographystyle{ieeetr}
-\bibliography{a1_abbrv,Proj2}
+%\newpage  % start a new page
+%
+%\bibliographystyle{ieeetr}
+%\bibliography{a1_abbrv,Proj2}
 
 \end{document} % always the last line of your document file
