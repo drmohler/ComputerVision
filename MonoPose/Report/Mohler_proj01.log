@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.2.20)  21 FEB 2018 22:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.2.20)  22 FEB 2018 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -252,17 +252,7 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \mult@nat@firstbox=\box56
 \colbreak@box=\box57
 \mc@col@check@num=\count124
-) (./Mohler_proj01.aux
-
-LaTeX Warning: Label `pure_recon' multiply defined.
-
-
-LaTeX Warning: Label `pixcoords' multiply defined.
-
-
-LaTeX Warning: Label `pure_recon' multiply defined.
-
-)
+) (./Mohler_proj01.aux)
 \openout1 = `Mohler_proj01.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -277,7 +267,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
- (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count125
 \scratchdimen=\dimen135
@@ -398,13 +388,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
-
-Package caption Warning: \label without proper reference on input line 192.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `pixcoords' on page 2 undefined on input line 79.
-
 Package epstopdf Info: Source file: <pixcoords.eps>
 (epstopdf)                    date: 2018-02-20 23:32:49
 (epstopdf)                    size: 4661858 bytes
@@ -470,10 +453,7 @@ File: noise_all_recon-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: noise_all_recon-eps-converted-to.pdf  used on input li
 ne 133.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ [3 <./pixcoords-eps-converted-to.pdf> <./pure_recon-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <errVstd.eps>
 (epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 19342 bytes
@@ -484,12 +464,11 @@ Package epstopdf Info: Source file: <errVstd.eps>
 df errVstd.eps>
 (epstopdf)             \includegraphics on input line 140.
 Package epstopdf Info: Output file is already uptodate.
-<errVstd-eps-converted-to.pdf, id=25, 421.575pt x 316.18124pt>
+<errVstd-eps-converted-to.pdf, id=45, 421.575pt x 316.18124pt>
 File: errVstd-eps-converted-to.pdf Graphic file (type pdf)
 <use errVstd-eps-converted-to.pdf>
 Package pdftex.def Info: errVstd-eps-converted-to.pdf  used on input line 140.
 (pdftex.def)             Requested size: 281.85585pt x 211.39647pt.
-[3 <./pixcoords-eps-converted-to.pdf> <./pure_recon-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <dimerr.eps>
 (epstopdf)                    date: 2018-02-21 20:44:50
 (epstopdf)                    size: 8875764 bytes
@@ -521,10 +500,9 @@ File: dimerr_recon-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: dimerr_recon-eps-converted-to.pdf  used on input line 
 156.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
-
-[4 <./noise_all-eps-converted-to.pdf> <./noise_all_recon-eps-converted-to.pdf> 
-<./errVstd-eps-converted-to.pdf>] [5 <./dimerr-eps-converted-to.pdf> <./dimerr_
-recon-eps-converted-to.pdf>]
+ [4 <./noise_all-eps-converted-to.pdf> <./noise_all_recon-eps-converted-to.pdf>
+ <./errVstd-eps-converted-to.pdf>] [5 <./dimerr-eps-converted-to.pdf> <./dimerr
+_recon-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <im1.eps>
 (epstopdf)                    date: 2018-02-21 22:23:12
 (epstopdf)                    size: 6262996 bytes
@@ -586,15 +564,13 @@ File: im4-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: im4-eps-converted-to.pdf  used on input line 195.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
  [6 <./im1-eps-converted-to.pdf> <./im2-eps-converted-to.pdf> <./im3-eps-conver
-ted-to.pdf> <./im4-eps-converted-to.pdf>]
-(./MonoPose.m [7]
+ted-to.pdf> <./im4-eps-converted-to.pdf>] (./MonoPose.m [7]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 52.
  (c:/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 52.
-
 [8] [9] [10] [11] [12]) (./MonoPoseQR.m [13]) (./qrCommute.m [14]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 32.
 
@@ -604,14 +580,7 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 32.
 ) [15]
-(./Mohler_proj01.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+(./Mohler_proj01.aux) ) 
 Here is how much of TeX's memory you used:
  5994 strings out of 492982
  86106 string characters out of 6136225
@@ -619,20 +588,20 @@ Here is how much of TeX's memory you used:
  9457 multiletter control sequences out of 15000+600000
  12572 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,11n,44p,1301b,1998s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2017/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
-fb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2017/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Mohler_proj01.pdf (15 pages, 5603934 bytes).
+ 51i,11n,44p,1332b,1998s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10
+.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/20
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Mohler_proj01.pdf (15 pages, 5603776 bytes).
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)
  140 compressed objects within 2 object streams
