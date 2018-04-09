@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a11ac966-ae59-443d-90af-b3504772a7bf}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>Mohler_CNN.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+    <CommandLineArguments>--dataset ../datasets/animals</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Mohler_CNN.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="networks\nn\MohlerNet.py" />
+    <Compile Include="networks\nn\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="networks\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pyimagesearch\datasets\simpledatasetloader.py" />
+    <Compile Include="pyimagesearch\datasets\__init__.py" />
+    <Compile Include="pyimagesearch\nn\conv\shallownet.py" />
+    <Compile Include="pyimagesearch\nn\conv\__init__.py" />
+    <Compile Include="pyimagesearch\nn\neuralnetwork.py" />
+    <Compile Include="pyimagesearch\nn\perceptron.py" />
+    <Compile Include="pyimagesearch\nn\__init__.py" />
+    <Compile Include="pyimagesearch\preprocessing\imagetoarraypreprocessor.py" />
+    <Compile Include="pyimagesearch\preprocessing\simplepreprocessor.py" />
+    <Compile Include="pyimagesearch\preprocessing\__init__.py" />
+    <Compile Include="pyimagesearch\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="networks\" />
+    <Folder Include="networks\nn\" />
+    <Folder Include="pyimagesearch" />
+    <Folder Include="pyimagesearch\datasets" />
+    <Folder Include="pyimagesearch\nn" />
+    <Folder Include="pyimagesearch\nn\conv" />
+    <Folder Include="pyimagesearch\preprocessing" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
