@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report
 from pyimagesearch.preprocessing import ImageToArrayPreprocessor
 from pyimagesearch.preprocessing import SimplePreprocessor
 from pyimagesearch.datasets import SimpleDatasetLoader
-from networks.nn.MohlerNet import MohlerNet  
+from networks.nn.MohlerNet import MohlerNet1  
 from keras.optimizers import SGD
 from keras.optimizers import Adagrad
 from imutils import paths
@@ -39,7 +39,7 @@ data = data.astype("float") / 255.0
 # partition the data into training and testing splits using 75% of
 # the data for training and the remaining 25% for testing
 (trainX, testX, trainY, testY) = train_test_split(data, labels,
-	test_size=0.25, random_state=42)
+	test_size=0.25, random_state=42) #Keep random at 42 for consistent evaluations
 
 # convert the labels from integers to vectors
 trainY = LabelBinarizer().fit_transform(trainY)
@@ -49,7 +49,7 @@ testY = LabelBinarizer().fit_transform(testY)
 print("[INFO] compiling model...")
 #opt = SGD(lr=0.005)
 opt = Adagrad(lr=0.01,epsilon=0.1)
-model = MohlerNet.build(width=32,height=32,depth=3,classes=3)
+model = MohlerNet1.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 

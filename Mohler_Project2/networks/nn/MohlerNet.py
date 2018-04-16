@@ -6,7 +6,7 @@ from keras.layers.core import Flatten
 from keras.layers.core import Dense
 from keras import backend as K
 
-class MohlerNet:
+class MohlerNet1:
 	@staticmethod
 	def build(width, height, depth, classes):
 		# initialize the model along with the input shape to be
