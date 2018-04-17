@@ -16,14 +16,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 import csv
+import os
+
+import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
 
 def SaveResults(filename,results):
-    
-    with open(filename,'w') as resultFile:
-        writer = csv.writer(resultFile,dialect='excel')
-        for line in results:
-            writer.writerow(line)
+    if os.path.isfile(filename):
+        with open(filename,'a', newline='') as resultFile:
+            writer = csv.writer(resultFile,delimiter=',')
+            for line in results:
+                writer.writerow(line)
+    else:
+        with open(filename,'w', newline='') as resultFile:
+            writer = csv.writer(resultFile,delimiter=',')
+            for line in results:
+                writer.writerow(line)
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -66,8 +76,9 @@ model.compile(loss="categorical_crossentropy", optimizer=opt,
 
 # train the network
 print("[INFO] training network...")
+numEpochs = 50
 H = model.fit(trainX, trainY, validation_data=(testX, testY),
-	batch_size=32, epochs=2, verbose=1)
+	batch_size=32, epochs=numEpochs, verbose=1)
 
 # evaluate the network
 print("[INFO] evaluating network...")
@@ -76,18 +87,45 @@ results = classification_report(testY.argmax(axis=1),
 	predictions.argmax(axis=1),
 	target_names=["cat", "dog", "panda"])
 print("\n",results)
-filename = "results.csv"
-SaveResults(filename,results)
+
+#Format data to be written to CSV file 
+#------------------------------------------------#
+test = results.split()
+for i in range(len(test)):
+    test[i].replace('/','')
+test[19:22] = [''.join(test[19:22])]
+test = list(filter(None, test)) # fastest
+test.insert(0,'')
+test = np.reshape(test,(5,5))
+NetDict = {
+    1 : "MohlerNet1"
+    }
+
+OptDict = {
+    1:"SGD",
+    2:"AdaGrad"
+    }
+
+filename = "NetworkResults_"+NetDict[1]+"_opt-"+OptDict[2]
+fcsv = filename+".csv"
+print(filename)
+SaveResults(fcsv,test) #write results to file
+print("Results saved as: ",filename) 
+#END RESULTS STORAGE
+#-----------------------------------------------------------------#
 
 # plot the training loss and accuracy
 plt.style.use("ggplot")
-plt.figure()
-plt.plot(np.arange(0, 100), H.history["loss"], label="train_loss")
-plt.plot(np.arange(0, 100), H.history["val_loss"], label="val_loss")
-plt.plot(np.arange(0, 100), H.history["acc"], label="train_acc")
-plt.plot(np.arange(0, 100), H.history["val_acc"], label="val_acc")
+plt.figure(filename)
+plt.plot(np.arange(0, numEpochs), H.history["loss"], label="train_loss")
+plt.plot(np.arange(0, numEpochs), H.history["val_loss"], label="val_loss")
+plt.plot(np.arange(0, numEpochs), H.history["acc"], label="train_acc")
+plt.plot(np.arange(0, numEpochs), H.history["val_acc"], label="val_acc")
 plt.title("Training Loss and Accuracy")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
 plt.legend()
+plt.savefig(filename)
 plt.show()
+
+    
