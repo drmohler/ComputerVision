@@ -47,4 +47,10 @@ sccprj/
 # Octave session info
 
 octave-workspace
+<<<<<<< HEAD
 *.jpg
+=======
+
+# Datasets
+datasets/ 
+>>>>>>> 009a605cb2ef6131475256bd3a1fba3cc09d2fce
