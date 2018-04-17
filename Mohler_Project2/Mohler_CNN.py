@@ -3,8 +3,8 @@
 
 # import the necessary packages
 from sklearn.preprocessing import LabelBinarizer
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split 
+from sklearn.metrics import classification_report 
 from pyimagesearch.preprocessing import ImageToArrayPreprocessor
 from pyimagesearch.preprocessing import SimplePreprocessor
 from pyimagesearch.datasets import SimpleDatasetLoader
@@ -15,6 +15,15 @@ from imutils import paths
 import matplotlib.pyplot as plt
 import numpy as np
 import argparse
+import csv
+
+
+def SaveResults(filename,results):
+    
+    with open(filename,'w') as resultFile:
+        writer = csv.writer(resultFile,dialect='excel')
+        for line in results:
+            writer.writerow(line)
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -48,7 +57,9 @@ testY = LabelBinarizer().fit_transform(testY)
 # initialize the optimizer and model
 print("[INFO] compiling model...")
 #opt = SGD(lr=0.005)
-opt = Adagrad(lr=0.01,epsilon=0.1)
+LR,EPS = 0.01, 0.1
+print("Learning Rate: ",LR,"\tEpsilon: ",EPS)
+opt = Adagrad(lr=LR,epsilon=EPS) #LR should be 0.01 and eps 0.1 for this optimizer
 model = MohlerNet1.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
@@ -56,14 +67,17 @@ model.compile(loss="categorical_crossentropy", optimizer=opt,
 # train the network
 print("[INFO] training network...")
 H = model.fit(trainX, trainY, validation_data=(testX, testY),
-	batch_size=32, epochs=100, verbose=1)
+	batch_size=32, epochs=2, verbose=1)
 
 # evaluate the network
 print("[INFO] evaluating network...")
 predictions = model.predict(testX, batch_size=32)
-print(classification_report(testY.argmax(axis=1),
+results = classification_report(testY.argmax(axis=1),
 	predictions.argmax(axis=1),
-	target_names=["cat", "dog", "panda"]))
+	target_names=["cat", "dog", "panda"])
+print("\n",results)
+filename = "results.csv"
+SaveResults(filename,results)
 
 # plot the training loss and accuracy
 plt.style.use("ggplot")
