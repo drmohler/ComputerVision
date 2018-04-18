@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report
 from pyimagesearch.preprocessing import ImageToArrayPreprocessor
 from pyimagesearch.preprocessing import SimplePreprocessor
 from pyimagesearch.datasets import SimpleDatasetLoader
-from networks.nn.MohlerNet import MohlerNet1  
+from networks.nn.MohlerNet import MohlerNet1, MohlerNet2  
 from keras.optimizers import SGD
 from keras.optimizers import Adagrad
 from imutils import paths
@@ -66,11 +66,11 @@ testY = LabelBinarizer().fit_transform(testY)
 
 # initialize the optimizer and model
 print("[INFO] compiling model...")
-#opt = SGD(lr=0.005)
+opt = SGD(lr=0.01)
 LR,EPS = 0.01, 0.1
 print("Learning Rate: ",LR,"\tEpsilon: ",EPS)
-opt = Adagrad(lr=LR,epsilon=EPS) #LR should be 0.01 and eps 0.1 for this optimizer
-model = MohlerNet1.build(width=32,height=32,depth=3,classes=3)
+#opt = Adagrad(lr=LR,epsilon=EPS) #LR should be 0.01 and eps 0.1 for this optimizer
+model = MohlerNet2.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
@@ -98,7 +98,8 @@ test = list(filter(None, test)) # fastest
 test.insert(0,'')
 test = np.reshape(test,(5,5))
 NetDict = {
-    1 : "MohlerNet1"
+    1 : "MohlerNet1",
+    2 : "MohlerNet2"
     }
 
 OptDict = {
@@ -106,9 +107,8 @@ OptDict = {
     2:"AdaGrad"
     }
 
-filename = "NetworkResults_"+NetDict[1]+"_opt-"+OptDict[2]
+filename = "BaselineResults_"+NetDict[2]+"_opt-"+OptDict[1]
 fcsv = filename+".csv"
-print(filename)
 SaveResults(fcsv,test) #write results to file
 print("Results saved as: ",filename) 
 #END RESULTS STORAGE
@@ -121,7 +121,7 @@ plt.plot(np.arange(0, numEpochs), H.history["loss"], label="train_loss")
 plt.plot(np.arange(0, numEpochs), H.history["val_loss"], label="val_loss")
 plt.plot(np.arange(0, numEpochs), H.history["acc"], label="train_acc")
 plt.plot(np.arange(0, numEpochs), H.history["val_acc"], label="val_acc")
-plt.title("Training Loss and Accuracy")
+plt.title(NetDict[2]+ " Training Loss and Accuracy")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
 plt.legend()

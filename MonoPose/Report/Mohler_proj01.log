@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.2.20)  22 FEB 2018 11:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.2.20)  17 APR 2018 21:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -389,10 +389,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
  []
 
 Package epstopdf Info: Source file: <pixcoords.eps>
-(epstopdf)                    date: 2018-02-20 23:32:49
+(epstopdf)                    date: 2018-02-21 00:32:49
 (epstopdf)                    size: 4661858 bytes
 (epstopdf)             Output file: <pixcoords-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 569963 bytes
 (epstopdf)             Command: <repstopdf --outfile=pixcoords-eps-converted-to
 .pdf pixcoords.eps>
@@ -405,10 +405,10 @@ Package pdftex.def Info: pixcoords-eps-converted-to.pdf  used on input line 94.
 
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <pure_recon.eps>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 18619 bytes
 (epstopdf)             Output file: <pure_recon-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 9515 bytes
 (epstopdf)             Command: <repstopdf --outfile=pure_recon-eps-converted-t
 o.pdf pure_recon.eps>
@@ -422,10 +422,10 @@ Package pdftex.def Info: pure_recon-eps-converted-to.pdf  used on input line 99
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 [2 <./BoxModel.png>]
 Package epstopdf Info: Source file: <noise_all.eps>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 8877577 bytes
 (epstopdf)             Output file: <noise_all-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 592571 bytes
 (epstopdf)             Command: <repstopdf --outfile=noise_all-eps-converted-to
 .pdf noise_all.eps>
@@ -438,10 +438,10 @@ Package pdftex.def Info: noise_all-eps-converted-to.pdf  used on input line 128
 .
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <noise_all_recon.eps>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 19921 bytes
 (epstopdf)             Output file: <noise_all_recon-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 10082 bytes
 (epstopdf)             Command: <repstopdf --outfile=noise_all_recon-eps-conver
 ted-to.pdf noise_all_recon.eps>
@@ -455,10 +455,10 @@ ne 133.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
  [3 <./pixcoords-eps-converted-to.pdf> <./pure_recon-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <errVstd.eps>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 19342 bytes
 (epstopdf)             Output file: <errVstd-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 9101 bytes
 (epstopdf)             Command: <repstopdf --outfile=errVstd-eps-converted-to.p
 df errVstd.eps>
@@ -470,10 +470,10 @@ File: errVstd-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: errVstd-eps-converted-to.pdf  used on input line 140.
 (pdftex.def)             Requested size: 281.85585pt x 211.39647pt.
 Package epstopdf Info: Source file: <dimerr.eps>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 8875764 bytes
 (epstopdf)             Output file: <dimerr-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 591981 bytes
 (epstopdf)             Command: <repstopdf --outfile=dimerr-eps-converted-to.pd
 f dimerr.eps>
@@ -485,10 +485,10 @@ File: dimerr-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: dimerr-eps-converted-to.pdf  used on input line 151.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <dimerr_recon.eps>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 18920 bytes
 (epstopdf)             Output file: <dimerr_recon-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 20:44:50
+(epstopdf)                    date: 2018-02-21 21:44:50
 (epstopdf)                    size: 9659 bytes
 (epstopdf)             Command: <repstopdf --outfile=dimerr_recon-eps-converted
 -to.pdf dimerr_recon.eps>
@@ -504,10 +504,10 @@ Package pdftex.def Info: dimerr_recon-eps-converted-to.pdf  used on input line
  <./errVstd-eps-converted-to.pdf>] [5 <./dimerr-eps-converted-to.pdf> <./dimerr
 _recon-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <im1.eps>
-(epstopdf)                    date: 2018-02-21 22:23:12
+(epstopdf)                    date: 2018-02-21 23:23:12
 (epstopdf)                    size: 6262996 bytes
 (epstopdf)             Output file: <im1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 22:25:21
+(epstopdf)                    date: 2018-02-21 23:25:21
 (epstopdf)                    size: 980944 bytes
 (epstopdf)             Command: <repstopdf --outfile=im1-eps-converted-to.pdf i
 m1.eps>
@@ -519,10 +519,10 @@ File: im1-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: im1-eps-converted-to.pdf  used on input line 176.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <im2.eps>
-(epstopdf)                    date: 2018-02-21 22:23:03
+(epstopdf)                    date: 2018-02-21 23:23:03
 (epstopdf)                    size: 5244251 bytes
 (epstopdf)             Output file: <im2-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 22:25:23
+(epstopdf)                    date: 2018-02-21 23:25:23
 (epstopdf)                    size: 851348 bytes
 (epstopdf)             Command: <repstopdf --outfile=im2-eps-converted-to.pdf i
 m2.eps>
@@ -534,10 +534,10 @@ File: im2-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: im2-eps-converted-to.pdf  used on input line 181.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <im3.eps>
-(epstopdf)                    date: 2018-02-21 22:23:26
+(epstopdf)                    date: 2018-02-21 23:23:26
 (epstopdf)                    size: 5763626 bytes
 (epstopdf)             Output file: <im3-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 22:25:25
+(epstopdf)                    date: 2018-02-21 23:25:25
 (epstopdf)                    size: 915412 bytes
 (epstopdf)             Command: <repstopdf --outfile=im3-eps-converted-to.pdf i
 m3.eps>
@@ -549,10 +549,10 @@ File: im3-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: im3-eps-converted-to.pdf  used on input line 190.
 (pdftex.def)             Requested size: 234.87749pt x 176.1581pt.
 Package epstopdf Info: Source file: <im4.eps>
-(epstopdf)                    date: 2018-02-21 22:23:38
+(epstopdf)                    date: 2018-02-21 23:23:38
 (epstopdf)                    size: 5800635 bytes
 (epstopdf)             Output file: <im4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-21 22:25:27
+(epstopdf)                    date: 2018-02-21 23:25:27
 (epstopdf)                    size: 886711 bytes
 (epstopdf)             Command: <repstopdf --outfile=im4-eps-converted-to.pdf i
 m4.eps>
@@ -601,7 +601,7 @@ ic/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Mohler_proj01.pdf (15 pages, 5603776 bytes).
+Output written on Mohler_proj01.pdf (15 pages, 5603764 bytes).
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)
  140 compressed objects within 2 object streams
