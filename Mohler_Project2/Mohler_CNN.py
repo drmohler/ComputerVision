@@ -22,7 +22,6 @@ import os
 #os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 #os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
-
 def SaveResults(filename,results):
     if os.path.isfile(filename):
         with open(filename,'a', newline='') as resultFile:
@@ -74,7 +73,7 @@ LR,EPS = 0.01, 0.1
 #print("Learning Rate: ",LR)#,"\tEpsilon: ",EPS)
 #opt = Adagrad(lr=LR,epsilon=EPS) #LR should be 0.01 and eps 0.1 for this optimizer
 #opt = Adam()
-opt = Adamax()
+opt = Adamax(lr=LR)
 print("Network Parameters:\n",opt.get_config())
 model = MohlerNet3.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,

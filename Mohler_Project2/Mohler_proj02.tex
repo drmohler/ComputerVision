@@ -25,7 +25,9 @@
 \maketitle
 
 \section{Introduction} 
-The rebirth of Neural Networks (NNs) and Machine Learning (ML) has offered revolutionary approaches to intelligent tasks previously unattainable in the field of image processing and computer vision. A major area of research focus continues to be the classification of images. Image classification through classical means of image processing tend to suffer due to problems with the wide variance in images to be classified 
+The rebirth of Neural Networks (NNs) and Machine Learning (ML) has offered revolutionary approaches to intelligent tasks previously unattainable in the field of image processing and computer vision. A major area of research continues to be the automated classification of images. Image classification through classical means of image processing tend to suffer due to problems with the wide variance in images to be classified and how their subject matter may be transformed from image to image. The discovery of Convolution Neural Networks (CNNs) lead to a massive increase in the accuracy of which images could be classified in an automated fashion. 
+
+For this project we will demonstrate the development of several convolution neural networks that vary across a wide number of parameters for the purpose of classifying color images of three different types of animals. The CNN is tasked with classifying images of cats, dogs, and pandas, typical examples of images in the data set can be seen below. Through the variation of network parameters such as the number of layers and the number of neurons within them, activation functions, learning rates, optimization routines, data augmentation, and other hyper parameters, we display the ability to increase the classification performance of the network. 
 \begin{figure}[h]
 	\centering % must do this or your figure won't be centered
 	\captionsetup{justification=centering}
@@ -44,10 +46,10 @@ The rebirth of Neural Networks (NNs) and Machine Learning (ML) has offered revol
 \end{figure}
 
 \section{Methods and Results}
-
+After establishing an initial understanding of the basic \pc{ShallowNet} animal classification network that was provided, we begin with a relatively simple and small expansion to include fundamental elements of CNNs, once a working network is establish we are able to tune the parameters and observe the effects of varying the optimization techniques. Once a candidate optimization has been selected we proceed to modify and tunt the associated hyperparameters
 
 \subsection{ShallowNet}
-For baseline comparisons we will use the code provided by Dr. Rosebrock \cite{rosebrock} which is a simplistic implementation of a Convolutional Neural Network designed with the goal of classification of images in to any of the three given animal categories. The basic structure of Rosebrock's network consists of:
+For baseline comparisons we will use the code provided by Dr. Rosebrock \cite{rosebrock} which is a simplistic implementation of a Convolution Neural Network designed with the goal of classification of images in to any of the three given animal categories. The basic structure of Rosebrock's network consists of:
 \begin{center}
 	\pc{INPUT => CONV => RELU => FC => SOFTMAX} \\
 \end{center}
@@ -138,7 +140,7 @@ Using the classical stochastic gradient descent approach to the optimization of 
 		\end{center}	
 	\end{minipage}
 \end{figure}
-
+\textbf{TALK ABOUT OVERFITTING HERE}
 \subsection{MohlerNet3}
 
 \begin{center}
@@ -166,7 +168,7 @@ Using the classical stochastic gradient descent approach to the optimization of 
 				Avg/Total  &    0.77 &     0.75   &   0.75   &    750\\ \hline 
 				
 			\end{tabular}
-			\captionof{table}{MohlerNet3 with Data Augmentation Results}\label{MN2RAug}
+			\captionof{table}{MohlerNet3 with Data Augmentation Results}\label{MN3RAug}
 		\end{center}	
 	\end{minipage}
 \end{figure}
