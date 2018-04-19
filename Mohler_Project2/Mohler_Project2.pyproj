@@ -11,8 +11,6 @@
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId>{cbe54010-433b-4418-aabc-c160820c57b7}</InterpreterId>
-    <InterpreterVersion>3.5</InterpreterVersion>
     <CommandLineArguments>--dataset ../datasets/animals</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
     <IsWindowsApplication>False</IsWindowsApplication>
@@ -21,7 +19,6 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <PropertyGroup>
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
-    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Mohler_CNN.py">
@@ -55,11 +52,6 @@
     <Folder Include="pyimagesearch\nn\conv" />
     <Folder Include="pyimagesearch\preprocessing" />
   </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="{27ec93da-1760-42b8-a026-c0c1cbe4a85f}\3.5" />
-    <InterpreterReference Include="{a7aa9d4a-721c-4652-a75a-61831578f059}\3.5" />
-    <InterpreterReference Include="{cbe54010-433b-4418-aabc-c160820c57b7}\3.5" />
-  </ItemGroup>
-  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

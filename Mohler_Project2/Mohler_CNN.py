@@ -20,7 +20,7 @@ import csv
 import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-os.environ["CUDA_VISIBLE_DEVICES"]="-1"
+#os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
 def SaveResults(filename,results):
     if os.path.isfile(filename):
@@ -67,13 +67,13 @@ testY = LabelBinarizer().fit_transform(testY)
 print("[INFO] compiling model...")
 #opt = SGD(lr=0.01)
 
-dataAugmentation = False 
+dataAugmentation = True 
 LR,EPS = 0.01, 0.1
-opt = SGD(lr=LR,momentum=0.9) 
+#opt = SGD(lr=LR,momentum=0.9) 
 #print("Learning Rate: ",LR)#,"\tEpsilon: ",EPS)
 #opt = Adagrad(lr=LR,epsilon=EPS) #LR should be 0.01 and eps 0.1 for this optimizer
 #opt = Adam()
-#opt = Adamax(lr=LR)
+opt = Adamax(lr=LR)
 print("Network Parameters:\n",opt.get_config())
 model = MohlerNet4.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
@@ -81,7 +81,7 @@ model.compile(loss="categorical_crossentropy", optimizer=opt,
 
 # train the network
 print("[INFO] training network...")
-numEpochs = 75
+numEpochs = 100
 
 batch_size = 16
 
@@ -134,9 +134,9 @@ OptDict = {
     4:"Adamax"
     }
 Network = NetDict[4]
-Optimizer = OptDict[1]
+Optimizer = OptDict[4]
 
-filename = Network+"_opt-"+Optimizer+"_momentum_noAug"
+filename = Network+"_opt-"+Optimizer+"tests_extraDense"
 fcsv = filename+".csv"
 SaveResults(fcsv,test) #write results to file
 print("Results saved as: ",filename) 
