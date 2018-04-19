@@ -4,4 +4,10 @@
 A.~Rosebrock, {\em Deep Learning For Computer Vision With Python}.
 \newblock PyImageSearch, 2017.
 
+\bibitem{NIPS2012_4824}
+A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``Imagenet classification with
+  deep convolutional neural networks,'' in {\em Advances in Neural Information
+  Processing Systems 25} (F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q.
+  Weinberger, eds.), pp.~1097--1105, Curran Associates, Inc., 2012.
+
 \end{thebibliography}

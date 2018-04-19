@@ -27,7 +27,7 @@
 \section{Introduction} 
 The rebirth of Neural Networks (NNs) and Machine Learning (ML) has offered revolutionary approaches to intelligent tasks previously unattainable in the field of image processing and computer vision. A major area of research continues to be the automated classification of images. Image classification through classical means of image processing tend to suffer due to problems with the wide variance in images to be classified and how their subject matter may be transformed from image to image. The discovery of Convolution Neural Networks (CNNs) lead to a massive increase in the accuracy of which images could be classified in an automated fashion. 
 
-For this project we will demonstrate the development of several convolution neural networks that vary across a wide number of parameters for the purpose of classifying color images of three different types of animals. The CNN is tasked with classifying images of cats, dogs, and pandas, typical examples of images in the data set can be seen below. Through the variation of network parameters such as the number of layers and the number of neurons within them, activation functions, learning rates, optimization routines, data augmentation, and other hyper parameters, we display the ability to increase the classification performance of the network. 
+For this project we will demonstrate the development of several convolution neural networks that vary across a wide number of parameters for the purpose of classifying color images of three different types of animals. The CNN is tasked with classifying images of cats, dogs, and pandas, typical examples of images in the data set can be seen below. Through the variation of network parameters such as the number of layers and the amount of neurons within them, activation functions, learning rates, optimization routines, data augmentation, and other hyper parameters, we display the ability to increase the classification performance of the network. 
 \begin{figure}[h]
 	\centering % must do this or your figure won't be centered
 	\captionsetup{justification=centering}
@@ -64,14 +64,14 @@ Even with the most basic of implementations, the network is able to provide a re
 	\end{minipage}\hfill
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
-			\begin{tabular}[5pt]{| c| c| c| c|c|}
+			\begin{tabular}[2pt]{| c| c| c| c|c|}
 				\hline
-				& Precision & Recall & F1-Score & Support \\[0.5ex] 
+				& Precision & Recall & F1 & Support \\[0.5ex] 
 				\hline 	
 				Cat   &    0.64	&0.57&	0.6&	262\\ \hline 
 				Dog    &   0.57&	0.58&	0.58&	249\\ \hline 
 				Panda   &   0.79&	0.86&	0.82&	239	\\ \hline 
-				Avg/Total  &     0.66 &	0.67 &	0.66 &	750\\ \hline 
+				Avg/Tot  &     0.66 &	0.67 &	0.66 &	750\\ \hline 
 				
 			\end{tabular}
 			\captionof{table}{ShallowNet Results}\label{SNR}
@@ -85,7 +85,7 @@ The initial modification to the original network lies in the expansion of the ar
 \begin{center}
 	\pc{INPUT => CONV => CONV => MAXPOOL => DROPOUT(0.5) => FC => SOFTMAX} \\
 \end{center}
-Using the classical stochastic gradient descent (SGD) approach to the optimization of the network we were able to see an immediate and reproducible increase in the ability of the network to accurately classify the three categories of animal images.  From Table \ref{MNR}, it can be seen that the inclusion of the additional convolutional layer, pooling, and dropout was able to provide a $6\%$ increase in the accuracy of the network. For this experiment we used the keras recommended learning rate ($LR = 0.01$). As a more objective measure of the algorithm we can view the F-1 score for each tested network. The F-1 score captures information regarding the false positives and false negatives in the classification process, this gives a more objective view from algorithm to algorithm . From this we can also see a similar increase in F-1 score between the original ShallowNet implementation and the first implementation of MohlerNet (MohlerNet2). 
+More specifically, the CNN employs the use of $3\times3$ kernels in the convolution layers, where the first layer generates 32 feature maps and the second expands to 64 feature maps prior to applying a $2\times2$ max-pooling to the output. From the pooled output a neuron dropout probability of $50\%$ is applied in order to attempt to reduce neuron dependencies and memorization of data. Using the classical stochastic gradient descent (SGD) approach to the optimization of the network we were able to see an immediate and reproducible increase in the ability of the network to accurately classify the three categories of animal images.  From Table \ref{MNR}, it can be seen that the inclusion of the additional convolutional layer, pooling, and dropout was able to provide a $6\%$ increase in the accuracy of the network. For this experiment we used the keras recommended learning rate ($LR = 0.01$). As a more objective measure of the algorithm we can view the F-1 score for each tested network. The F-1 score captures information regarding the false positives and false negatives in the classification process, this gives a more objective view from algorithm to algorithm . From this we can also see a similar increase in F-1 score between the original ShallowNet implementation and the first implementation of MohlerNet (MohlerNet2). 
 
 \begin{figure}[h]
 	\centering % must do this or your figure won't be centered
@@ -99,12 +99,12 @@ Using the classical stochastic gradient descent (SGD) approach to the optimizati
 		\begin{center}
 			\begin{tabular}[5pt]{| c| c| c| c|c|}
 				\hline
-					& Precision & Recall & F1-Score & Support \\[0.5ex] 
+					& Precision & Recall & F1 & Support \\[0.5ex] 
 				\hline 	
 				 Cat   &    0.67  &    0.75   &   0.71   &    262\\ \hline 
 				 Dog    &   0.64    &  0.60   &   0.62   &    249\\ \hline 
 				 Panda   &    0.88   &  0.82 &     0.85  &     239\\ \hline 
-				 Avg/Total  &     0.72    &  0.72 &     0.72    &   750\\ \hline 
+				 Avg/Tot  &     0.72    &  0.72 &     0.72    &   750\\ \hline 
 
 			\end{tabular}
 			\captionof{table}{MohlerNet2 Classification Results}\label{MNR}
@@ -112,7 +112,7 @@ Using the classical stochastic gradient descent (SGD) approach to the optimizati
 	\end{minipage}
 \end{figure}
 
-Once the first results of the SGD optimized results were obtained we observed the effect of modifying the optimizer for the network. While using the AdaGrad and Adam optimzers, which apply adaptive learning rates, we saw no improvement in any of the scoring metrics. Actually, there was a reduction in accuracy from the original SGD approach, down to an average of approximately $70\%$ classification accuracy.   
+Once the first trials of the SGD optimized results were obtained we observed the effect of modifying the optimizer for the network. While using the AdaGrad and Adam optimizers, which apply adaptive learning rates, we saw no improvement in any of the scoring metrics. Actually, there was a reduction in accuracy from the original SGD approach, down to an average of approximately $70\%$ classification accuracy. In order to attempt to increase the accuracy of the network we must take in to account that we are dealing with a relatively small data set (by modern standards). With the small number of images being used to train the network there is a high probability that we will experience over-fitting while attempting to increase performance. In order to counter this, we next applied data augmentation to the training set. This allows us to modify the images in moderate ways (rotations, flips, sheering, etc.) such that they are presented to the network in a new way each epoch. The inclusion of data augmentation yielded another (relatively) considerable increase in accuracy and F1-Score. As shown in Table \ref{MN2RAug}, both metrics increased by $4\%$ such that the MohlerNet2 implementation could classify with $76\%$ accuracy. However, from Figure \ref{MN2Aug} it can be seen that from the gap between training accuracy and validation accuracy, the network is experiencing some mild over fitting, which indicates that some modifications may be able to improve the performance further, these remain to be discovered.
 
 \begin{figure}[h]
 	\centering % must do this or your figure won't be centered
@@ -126,20 +126,21 @@ Once the first results of the SGD optimized results were obtained we observed th
 		\begin{center}
 			\begin{tabular}[5pt]{| c| c| c| c|c|}
 				\hline
-				& Precision & Recall & F1-Score & Support \\[0.5ex] 
+				& Precision & Recall & F1 & Support \\[0.5ex] 
 				\hline 	
 				Cat   &    0.75&	0.66&	0.71&	262\\ \hline 
-				Dog    &   0.69&	0.7&	0.69&	249    \\ \hline 
-				Panda   &   0.84&	0.93&	0.89&	239    \\ \hline 
-				Avg/Total  &    0.76&	0.76&	0.76&	750\\ \hline 
+				Dog    &   0.69&	0.7&	0.69&	249\\ \hline 
+				Panda   &   0.84&	0.93&	0.89&	239\\ \hline 
+				Avg/Tot  &    0.76&	0.76&	0.76&	750\\ \hline 
 				
 			\end{tabular}
 			\captionof{table}{MohlerNet2 with Data Augmentation Results}\label{MN2RAug}
 		\end{center}	
 	\end{minipage}
 \end{figure}
-\textbf{TALK ABOUT OVERFITTING HERE}
+
 \subsection{MohlerNet3}
+The next generation implementation of MohlerNet (MohlerNet3) is based upon the architecture of Alex-Net \cite{NIPS2012_4824}
 
 \begin{center}
 	\pc{INPUT => [CONV => MAXPOOL]*2 => CONV*3 => MAXPOOL => DROPOUT(0.5) => FC => SOFTMAX} \\
@@ -158,12 +159,12 @@ Once the first results of the SGD optimized results were obtained we observed th
 		\begin{center}
 			\begin{tabular}[5pt]{| c| c| c| c|c|}
 				\hline
-				& Precision & Recall & F1-Score & Support \\[0.5ex] 
+				& Precision & Recall & F1 & Support \\[0.5ex] 
 				\hline 	
 				Cat   &    0.81&      0.58 &     0.68  &     262\\ \hline 
 				Dog    &   0.62 &     0.78 &     0.69 &      249    \\ \hline 
 				Panda   &   0.88&      0.91  &    0.89  &     239   \\ \hline 
-				Avg/Total  &    0.77 &     0.75   &   0.75   &    750\\ \hline 
+				Avg/Tot  &    0.77 &     0.75   &   0.75   &    750\\ \hline 
 				
 			\end{tabular}
 			\captionof{table}{MohlerNet3 with Data Augmentation Results}\label{MN3RAug}
@@ -190,12 +191,12 @@ Once the first results of the SGD optimized results were obtained we observed th
 		\begin{center}
 			\begin{tabular}[5pt]{| c| c| c| c|c|}
 				\hline
-				& Precision & Recall & F1-Score & Support \\[0.5ex] 
+				& Precision & Recall & F1 & Support \\[0.5ex] 
 				\hline 	
 				Cat   &    0.81&      0.58 &     0.68  &     262\\ \hline 
 				Dog    &   0.62 &     0.78 &     0.69 &      249    \\ \hline 
 				Panda   &   0.88&      0.91  &    0.89  &     239   \\ \hline 
-				Avg/Total  &    0.77 &     0.75   &   0.75   &    750\\ \hline 
+				Avg/Tot  &    0.77 &     0.75   &   0.75   &    750\\ \hline 
 				
 			\end{tabular}
 			\captionof{table}{MohlerNet3 with Data Augmentation Results}\label{MN3RAug}

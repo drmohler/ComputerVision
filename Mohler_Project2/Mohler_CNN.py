@@ -19,8 +19,8 @@ import argparse
 import csv
 import os
 
-#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-#os.environ["CUDA_VISIBLE_DEVICES"]="-1"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
 def SaveResults(filename,results):
     if os.path.isfile(filename):
@@ -75,7 +75,7 @@ opt = SGD(lr=LR,momentum=0.9)
 #opt = Adam()
 #opt = Adamax(lr=LR)
 print("Network Parameters:\n",opt.get_config())
-model = MohlerNet3.build(width=32,height=32,depth=3,classes=3)
+model = MohlerNet4.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
@@ -134,9 +134,9 @@ OptDict = {
     4:"Adamax"
     }
 Network = NetDict[4]
-Optimizer = OptDict[4]
+Optimizer = OptDict[1]
 
-filename = Network+"_opt-"+Optimizer+"_200"
+filename = Network+"_opt-"+Optimizer+"_momentum_noAug"
 fcsv = filename+".csv"
 SaveResults(fcsv,test) #write results to file
 print("Results saved as: ",filename) 
