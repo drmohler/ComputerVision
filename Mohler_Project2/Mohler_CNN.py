@@ -67,13 +67,13 @@ testY = LabelBinarizer().fit_transform(testY)
 print("[INFO] compiling model...")
 #opt = SGD(lr=0.01)
 
-dataAugmentation = True 
+dataAugmentation = False 
 LR,EPS = 0.01, 0.1
-#opt = SGD(lr=LR) 
+opt = SGD(lr=LR,momentum=0.9) 
 #print("Learning Rate: ",LR)#,"\tEpsilon: ",EPS)
 #opt = Adagrad(lr=LR,epsilon=EPS) #LR should be 0.01 and eps 0.1 for this optimizer
 #opt = Adam()
-opt = Adamax(lr=LR)
+#opt = Adamax(lr=LR)
 print("Network Parameters:\n",opt.get_config())
 model = MohlerNet3.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
@@ -81,7 +81,7 @@ model.compile(loss="categorical_crossentropy", optimizer=opt,
 
 # train the network
 print("[INFO] training network...")
-numEpochs = 100
+numEpochs = 75
 
 batch_size = 16
 
@@ -95,7 +95,8 @@ if dataAugmentation == True:
         horizontal_flip=True)
 
     train_datagen.fit(trainX)
-    H = model.fit_generator(train_datagen.flow(trainX,trainY,batch_size=batch_size)
+    H = model.fit_generator(train_datagen.flow(trainX,trainY,batch_size=batch_size),
+                   steps_per_epoch=(2250//batch_size)
                   ,epochs=numEpochs,
                   validation_data=(testX,testY))
 else: 
@@ -135,7 +136,7 @@ OptDict = {
 Network = NetDict[4]
 Optimizer = OptDict[4]
 
-filename = Network+"_opt-"+Optimizer
+filename = Network+"_opt-"+Optimizer+"_200"
 fcsv = filename+".csv"
 SaveResults(fcsv,test) #write results to file
 print("Results saved as: ",filename) 
