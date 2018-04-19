@@ -7,10 +7,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report 
 from pyimagesearch.preprocessing import ImageToArrayPreprocessor
 from pyimagesearch.preprocessing import SimplePreprocessor
+from keras.preprocessing.image import ImageDataGenerator as IDG 
 from pyimagesearch.datasets import SimpleDatasetLoader
-from networks.nn.MohlerNet import MohlerNet1, MohlerNet2  
+from networks.nn.MohlerNet import MohlerNet1, MohlerNet2  ,MohlerNet3, MohlerNet4 
 from keras.optimizers import SGD
-from keras.optimizers import Adagrad
+from keras.optimizers import Adagrad, Adam, Adamax
 from imutils import paths
 import matplotlib.pyplot as plt
 import numpy as np
@@ -18,9 +19,8 @@ import argparse
 import csv
 import os
 
-import tensorflow as tf
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-os.environ["CUDA_VISIBLE_DEVICES"]="-1"
+#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+#os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
 
 def SaveResults(filename,results):
@@ -66,23 +66,46 @@ testY = LabelBinarizer().fit_transform(testY)
 
 # initialize the optimizer and model
 print("[INFO] compiling model...")
-opt = SGD(lr=0.01)
+#opt = SGD(lr=0.01)
+
+dataAugmentation = True 
 LR,EPS = 0.01, 0.1
-print("Learning Rate: ",LR,"\tEpsilon: ",EPS)
+#opt = SGD(lr=LR) 
+#print("Learning Rate: ",LR)#,"\tEpsilon: ",EPS)
 #opt = Adagrad(lr=LR,epsilon=EPS) #LR should be 0.01 and eps 0.1 for this optimizer
-model = MohlerNet2.build(width=32,height=32,depth=3,classes=3)
+#opt = Adam()
+opt = Adamax()
+print("Network Parameters:\n",opt.get_config())
+model = MohlerNet3.build(width=32,height=32,depth=3,classes=3)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
 # train the network
 print("[INFO] training network...")
-numEpochs = 50
-H = model.fit(trainX, trainY, validation_data=(testX, testY),
-	batch_size=32, epochs=numEpochs, verbose=1)
+numEpochs = 100
 
-# evaluate the network
+batch_size = 16
+
+if dataAugmentation == True:
+    train_datagen = IDG(
+        rotation_range=20,
+        width_shift_range=0.2,
+        height_shift_range=0.2,
+        shear_range = 0.2,
+        zoom_range = 0.2,
+        horizontal_flip=True)
+
+    train_datagen.fit(trainX)
+    H = model.fit_generator(train_datagen.flow(trainX,trainY,batch_size=batch_size)
+                  ,epochs=numEpochs,
+                  validation_data=(testX,testY))
+else: 
+    H = model.fit(trainX, trainY, validation_data=(testX, testY),
+	    batch_size=batch_size, epochs=numEpochs, verbose=1)
+
+ #evaluate the network
 print("[INFO] evaluating network...")
-predictions = model.predict(testX, batch_size=32)
+predictions = model.predict(testX, batch_size=batch_size)
 results = classification_report(testY.argmax(axis=1),
 	predictions.argmax(axis=1),
 	target_names=["cat", "dog", "panda"])
@@ -98,16 +121,22 @@ test = list(filter(None, test)) # fastest
 test.insert(0,'')
 test = np.reshape(test,(5,5))
 NetDict = {
-    1 : "MohlerNet1",
-    2 : "MohlerNet2"
+    1 : "ShallowNet",
+    2 : "MohlerNet2",
+    3 : "MohlerNet3",
+    4 : "MohlerNet4" 
     }
 
 OptDict = {
     1:"SGD",
-    2:"AdaGrad"
+    2:"AdaGrad",
+    3:"Adam" ,
+    4:"Adamax"
     }
+Network = NetDict[4]
+Optimizer = OptDict[4]
 
-filename = "BaselineResults_"+NetDict[2]+"_opt-"+OptDict[1]
+filename = Network+"_opt-"+Optimizer
 fcsv = filename+".csv"
 SaveResults(fcsv,test) #write results to file
 print("Results saved as: ",filename) 
@@ -121,7 +150,7 @@ plt.plot(np.arange(0, numEpochs), H.history["loss"], label="train_loss")
 plt.plot(np.arange(0, numEpochs), H.history["val_loss"], label="val_loss")
 plt.plot(np.arange(0, numEpochs), H.history["acc"], label="train_acc")
 plt.plot(np.arange(0, numEpochs), H.history["val_acc"], label="val_acc")
-plt.title(NetDict[2]+ " Training Loss and Accuracy")
+plt.title(Network+ " Training Loss and Accuracy")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
 plt.legend()

@@ -1,0 +1,10 @@
+,precision,recall,f1-score,support
+cat,0.64,0.72,0.68,262
+dog,0.63,0.54,0.58,249
+panda,0.84,0.85,0.84,239
+avg/total,0.70,0.70,0.70,750
+,precision,recall,f1-score,support
+cat,0.75,0.66,0.71,262
+dog,0.69,0.70,0.69,249
+panda,0.84,0.93,0.89,239
+avg/total,0.76,0.76,0.76,750

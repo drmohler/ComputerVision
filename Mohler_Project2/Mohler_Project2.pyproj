@@ -11,10 +11,11 @@
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId />
-    <InterpreterVersion />
+    <InterpreterId>{cbe54010-433b-4418-aabc-c160820c57b7}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
     <CommandLineArguments>--dataset ../datasets/animals</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -53,6 +54,9 @@
     <Folder Include="pyimagesearch\nn" />
     <Folder Include="pyimagesearch\nn\conv" />
     <Folder Include="pyimagesearch\preprocessing" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{cbe54010-433b-4418-aabc-c160820c57b7}\3.5" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
