@@ -174,8 +174,6 @@ The next generation implementation of MohlerNet (MohlerNet3) is based upon a sim
 
 \subsection{MohlerNet4}
 
-Applying what has been descovered in the first two editions of MohlerNet, we modifiy the architecture of the network into a medium sized network (relative to the first two) which balances a low number of layers with the aim of the higher accuracy provided by the larger of the two networks. From this we select the AdaMax optimizer once more and operate under the assumption that the augmentation of the data consistently provides a boost in performance. Using the architecture shown below, we use 32 activation maps in the first two convolution layers with $3\times3$ kernels and $2\times2$ max-pooling, and 64 activation maps in the final convolution layer. However, in this iteration we add an additional fully connected layer prior to the output layer with 64 fully connected neurons. Using the ReLU activation for all layers we achieve results that are comparable to the much larger MohlerNet3 as shown in Table \ref{MN4RAug}
-
 \begin{center}
 	\pc{INPUT => [CONV => MAXPOOL]*3 => FC => DROPOUT => FC => SOFTMAX} \\
 \end{center}
@@ -186,7 +184,7 @@ Applying what has been descovered in the first two editions of MohlerNet, we mod
 	\captionsetup{justification=centering}
 	\begin{minipage}{0.5\textwidth}
 		\centering % must do this or your figure won't be centered
-		\includegraphics[width=1\textwidth]{MohlerNet4_opt-Adamaxtests.png}
+		\includegraphics[width=1\textwidth]{MohlerNet4_opt-Adamax.png}
 		\caption{MohlerNet4 with Data Augmentation Accuracy, AdaMax Optimized} \label{MN4Aug}
 	\end{minipage}\hfill
 	\begin{minipage}{0.5\textwidth}
