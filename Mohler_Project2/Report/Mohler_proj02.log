@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.2.20)  19 APR 2018 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.9.25)  19 APR 2018 16:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./Mohler_proj02.tex
 (./Mohler_proj02.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+Babel <3.13> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (c:/texlive/2017/texmf-dist/tex/latex/base/size12.clo
@@ -44,7 +44,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
 (c:/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
@@ -314,7 +314,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
@@ -354,18 +354,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <cats_00033.jpg, id=1, 500.87125pt x 376.40625pt>
 File: cats_00033.jpg Graphic file (type jpg)
 <use cats_00033.jpg>
-Package pdftex.def Info: cats_00033.jpg  used on input line 36.
-(pdftex.def)             Requested size: 155.02pt x 116.4952pt.
+Package pdftex.def Info: cats_00033.jpg  used on input line 36. on input line 3
+6.
+Package pdftex.def Info: Requested size: 155.02pt x 116.4952pt on input line 36
+.
 <dogs_00013.jpg, id=2, 500.87125pt x 375.4025pt>
 File: dogs_00013.jpg Graphic file (type jpg)
 <use dogs_00013.jpg>
-Package pdftex.def Info: dogs_00013.jpg  used on input line 40.
-(pdftex.def)             Requested size: 155.02pt x 116.18454pt.
+Package pdftex.def Info: dogs_00013.jpg  used on input line 40. on input line 4
+0.
+Package pdftex.def Info: Requested size: 155.02pt x 116.18454pt on input line 4
+0.
 <panda_00082.jpg, id=3, 501.875pt x 376.40625pt>
 File: panda_00082.jpg Graphic file (type jpg)
 <use panda_00082.jpg>
-Package pdftex.def Info: panda_00082.jpg  used on input line 44.
-(pdftex.def)             Requested size: 155.02pt x 116.26544pt.
+Package pdftex.def Info: panda_00082.jpg  used on input line 44. on input line 
+44.
+Package pdftex.def Info: Requested size: 155.02pt x 116.26544pt on input line 4
+4.
  [1
 
 {c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./cats_00033.jp
@@ -374,8 +380,9 @@ g> <./dogs_00013.jpg> <./panda_00082.jpg>]
 File: BaselineResults_ShallowNet_opt-SGD.png Graphic file (type png)
 <use BaselineResults_ShallowNet_opt-SGD.png>
 Package pdftex.def Info: BaselineResults_ShallowNet_opt-SGD.png  used on input 
-line 62.
-(pdftex.def)             Requested size: 234.87749pt x 176.15768pt.
+line 62. on input line 62.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.15768pt on input lin
+e 62.
 
 Overfull \hbox (10.24005pt too wide) in paragraph at lines 67--77
  [] 
@@ -387,8 +394,10 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 <MohlerNet2_opt-SGD_KEEP.png, id=19, 462.528pt x 346.896pt>
 File: MohlerNet2_opt-SGD_KEEP.png Graphic file (type png)
 <use MohlerNet2_opt-SGD_KEEP.png>
-Package pdftex.def Info: MohlerNet2_opt-SGD_KEEP.png  used on input line 95.
-(pdftex.def)             Requested size: 234.87749pt x 176.15768pt.
+Package pdftex.def Info: MohlerNet2_opt-SGD_KEEP.png  used on input line 95. on
+ input line 95.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.15768pt on input lin
+e 95.
 
 Overfull \hbox (10.24005pt too wide) in paragraph at lines 100--110
  [] 
@@ -399,86 +408,106 @@ Overfull \hbox (10.24005pt too wide) in paragraph at lines 100--110
 File: MohlerNet2_opt-AdaGradAugment_KEEP.png Graphic file (type png)
 <use MohlerNet2_opt-AdaGradAugment_KEEP.png>
 Package pdftex.def Info: MohlerNet2_opt-AdaGradAugment_KEEP.png  used on input 
-line 122.
-(pdftex.def)             Requested size: 234.87749pt x 176.15768pt.
+line 122. on input line 122.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.15768pt on input lin
+e 122.
 
 Overfull \hbox (10.24005pt too wide) in paragraph at lines 127--137
  [] 
  []
 
-<MohlerNet3_opt-AdamaxAugmented_KEEP.png, id=27, 462.528pt x 346.896pt>
+[4 <./MohlerNet2_opt-AdaGradAugment_KEEP.png>]
+<MohlerNet3_opt-Divergent.png, id=31, 462.528pt x 346.896pt>
+File: MohlerNet3_opt-Divergent.png Graphic file (type png)
+<use MohlerNet3_opt-Divergent.png>
+Package pdftex.def Info: MohlerNet3_opt-Divergent.png  used on input line 151. 
+on input line 151.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.15768pt on input lin
+e 151.
+<MohlerNet3_opt-AdamaxAugmented_KEEP.png, id=32, 462.528pt x 346.896pt>
 File: MohlerNet3_opt-AdamaxAugmented_KEEP.png Graphic file (type png)
 <use MohlerNet3_opt-AdamaxAugmented_KEEP.png>
 Package pdftex.def Info: MohlerNet3_opt-AdamaxAugmented_KEEP.png  used on input
- line 155.
-(pdftex.def)             Requested size: 234.87749pt x 176.15768pt.
+ line 160. on input line 160.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.15768pt on input lin
+e 160.
 
-Overfull \hbox (10.24005pt too wide) in paragraph at lines 160--170
+Overfull \hbox (10.24005pt too wide) in paragraph at lines 165--175
  [] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4 <./MohlerNet2_opt-AdaGradAugment_KEEP.png>]
-<MohlerNet4_opt-Adamaxtests.png, id=32, 462.528pt x 346.896pt>
+[5 <./MohlerNet3_opt-Divergent.png> <./MohlerNet3_opt-AdamaxAugmented_KEEP.png>
+]
+<MohlerNet4_opt-Adamaxtests.png, id=38, 462.528pt x 346.896pt>
 File: MohlerNet4_opt-Adamaxtests.png Graphic file (type png)
 <use MohlerNet4_opt-Adamaxtests.png>
-Package pdftex.def Info: MohlerNet4_opt-Adamaxtests.png  used on input line 189
-.
-(pdftex.def)             Requested size: 234.87749pt x 176.15768pt.
+Package pdftex.def Info: MohlerNet4_opt-Adamaxtests.png  used on input line 193
+. on input line 193.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.15768pt on input lin
+e 193.
 
-Overfull \hbox (10.24005pt too wide) in paragraph at lines 194--204
+Overfull \hbox (10.24005pt too wide) in paragraph at lines 198--208
  [] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<MohlerNet4_opt-Adamax.png, id=33, 462.528pt x 346.896pt>
+<MohlerNet4_opt-Adamax.png, id=39, 462.528pt x 346.896pt>
 File: MohlerNet4_opt-Adamax.png Graphic file (type png)
 <use MohlerNet4_opt-Adamax.png>
-Package pdftex.def Info: MohlerNet4_opt-Adamax.png  used on input line 216.
-(pdftex.def)             Requested size: 234.87749pt x 176.15768pt.
+Package pdftex.def Info: MohlerNet4_opt-Adamax.png  used on input line 220. on 
+input line 220.
+Package pdftex.def Info: Requested size: 234.87749pt x 176.15768pt on input lin
+e 220.
 
-Overfull \hbox (10.24005pt too wide) in paragraph at lines 221--231
+Overfull \hbox (10.24005pt too wide) in paragraph at lines 225--235
  [] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5 <./MohlerNet3_opt-AdamaxAugmented_KEEP.png>] (./MohlerNet.py [6 <./MohlerNet
-4_opt-Adamaxtests.png> <./MohlerNet4_opt-Adamax.png>]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 22.
+[6 <./MohlerNet4_opt-Adamaxtests.png>] [7 <./MohlerNet4_opt-Adamax.png>]
+[8] (./Mohler_CNN.py [9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 73.
+ (c:/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
 
-(c:/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
+[10] [11]
+Overfull \hbox (2.5942pt too wide) in paragraph at lines 144--146
+[][][] 
+ []
+
+) (./MohlerNet.py [12]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 22.
+ (c:/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 22.
- [7] [8]) [9] [10]
-(./Mohler_proj02.bbl) [11] (./Mohler_proj02.aux) ) 
+
+[13] [14] [15]) [16] (./Mohler_proj02.bbl) [17] (./Mohler_proj02.aux) ) 
 Here is how much of TeX's memory you used:
- 5883 strings out of 492982
- 84608 string characters out of 6136225
- 277292 words of memory out of 5000000
- 9354 multiletter control sequences out of 15000+600000
+ 6115 strings out of 492990
+ 87643 string characters out of 6136349
+ 286959 words of memory out of 5000000
+ 9571 multiletter control sequences out of 15000+600000
  12919 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,11n,44p,1557b,1998s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
-><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2017/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Mohler_proj02.pdf (11 pages, 600253 bytes).
+ 51i,11n,44p,1815b,1998s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
+pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Mohler_proj02.pdf (17 pages, 646293 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 109 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

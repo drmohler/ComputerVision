@@ -7,7 +7,7 @@ from keras.layers.core import Dense
 from keras import regularizers
 from keras import backend as K
 
-class MohlerNet1:
+class MohlerNet1: #AKA ShallowNet 
     @staticmethod
     def build(width, height, depth, classes):
         # initialize the model along with the input shape to be
@@ -30,6 +30,8 @@ class MohlerNet1:
         model.add(Activation("softmax"))
 
         # return the constructed network architecture
+        
+        
         return model
 
 #ADD CONVOLUTION LAYER, POOLING LAYER, AND DROPOUT
@@ -54,13 +56,11 @@ class MohlerNet2:
         model.add(Conv2D(64,(3,3),padding="same",activation='relu'))
         model.add(MaxPooling2D(pool_size=(2,2)))
         model.add(Dropout(0.5))
-
-        regularizers.l2
         # softmax classifier
         model.add(Flatten())
         model.add(Dense(classes))
         model.add(Activation("softmax"))
-
+        #model.summary()
         # return the constructed network architecture
         return model
 
@@ -94,7 +94,7 @@ class MohlerNet3:
         model.add(Dense(classes))
         model.add(Dropout(0.5))
         model.add(Activation("softmax"))
-
+        #model.summary()
         # return the constructed network architecture
         return model
 
@@ -131,6 +131,6 @@ class MohlerNet4:
         model.add(Dropout(0.5))
         model.add(Dense(classes))
         model.add(Activation("softmax"))
-
+        #model.summary()
         # return the constructed network architecture
         return model
