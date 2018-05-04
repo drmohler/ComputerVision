@@ -1,0 +1,5 @@
+Extra Dense: 
+batch: 16
+opt: Adamax
+epochs: 100
+tanh in first FC 

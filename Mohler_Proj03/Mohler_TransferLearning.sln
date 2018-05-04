@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Mohler_TransferLearning", "Mohler_TransferLearning\Mohler_TransferLearning.pyproj", "{D84F7266-C78C-4CA2-BEFD-6CDBC9AF6EE7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4EF751A-CC8F-4A11-B583-74E07DDF761D}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Mohler_TransferLearning", "Mohler_TransferLearning\Mohler_TransferLearning.pyproj", "{D84F7266-C78C-4CA2-BEFD-6CDBC9AF6EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1807865A-8B1A-49FE-A19D-CBB3FCC54D59}
 	EndGlobalSection
 EndGlobal
